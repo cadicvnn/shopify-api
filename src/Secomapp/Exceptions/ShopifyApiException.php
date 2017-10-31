@@ -2,7 +2,6 @@
 
 namespace Secomapp\Exceptions;
 
-
 class ShopifyApiException extends \Exception
 {
     /**
@@ -10,7 +9,7 @@ class ShopifyApiException extends \Exception
      *
      * @param string $message
      */
-    function __construct($message)
+    public function __construct($message)
     {
         $this->message = $message;
     }

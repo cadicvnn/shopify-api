@@ -2,7 +2,6 @@
 
 namespace Secomapp\Resources;
 
-
 use Secomapp\BaseResource;
 
 class ScriptTag extends BaseResource
@@ -20,6 +19,7 @@ class ScriptTag extends BaseResource
     public function get($id, $fields = null)
     {
         $params = $this->prepareFields($fields);
+
         return $this->client->get("script_tags/{$id}.json", 'script_tag', $params);
     }
 
@@ -27,17 +27,19 @@ class ScriptTag extends BaseResource
     {
         $params = ['script_tag' => [
             'event' => 'onload',
-            'src' => $url
+            'src'   => $url,
         ]];
+
         return $this->client->post('script_tags.json', 'script_tag', $params);
     }
 
     public function update($id, $url)
     {
         $params = ['script_tag' => [
-            'id' => $id,
-            'src' => $url
+            'id'  => $id,
+            'src' => $url,
         ]];
+
         return $this->client->put("script_tags/{$id}.json", 'script_tag', $params);
     }
 

@@ -2,7 +2,6 @@
 
 namespace Secomapp\Resources;
 
-
 use Secomapp\BaseResource;
 
 class Webhook extends BaseResource
@@ -11,19 +10,20 @@ class Webhook extends BaseResource
     {
         return $this->client->post('webhooks.json', 'webhook', [
             'webhook' => [
-                'topic' => $topic,
+                'topic'   => $topic,
                 'address' => $url,
-                'format' => 'json'
-            ]
+                'format'  => 'json',
+            ],
         ]);
     }
 
     public function update($id, $url)
     {
         $params = ['webhook' => [
-            'id' => $id,
-            'address' => $url
+            'id'      => $id,
+            'address' => $url,
         ]];
+
         return $this->client->put("webhooks/{$id}.json", 'webhook', $params);
     }
 
@@ -31,7 +31,8 @@ class Webhook extends BaseResource
      * Gets a list of up to 250 of the shop's webhooks.
      *
      * @param string $address An optional filter for the address property. When used, the method will only return webhooks with the given address.
-     * @param string $topic An optional filter for the topic property. When used, the method will only return webhooks with the given topic. A full list of topics can be found at https://help.shopify.com/api/reference/webhook.
+     * @param string $topic   An optional filter for the topic property. When used, the method will only return webhooks with the given topic. A full list of topics can be found at https://help.shopify.com/api/reference/webhook.
+     *
      * @return array a list of webhooks
      */
     public function all($address = null, $topic = null)

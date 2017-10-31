@@ -1,6 +1,6 @@
 <?php
-namespace Secomapp\Contracts;
 
+namespace Secomapp\Contracts;
 
 interface ChargeContract
 {

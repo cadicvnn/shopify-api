@@ -2,7 +2,6 @@
 
 namespace Secomapp;
 
-
 use Secomapp\Contracts\ClientApiContract;
 
 abstract class BaseResource
@@ -14,6 +13,7 @@ abstract class BaseResource
 
     /**
      * Resource constructor.
+     *
      * @param ClientApiContract $client
      */
     public function __construct(ClientApiContract $client)
@@ -23,6 +23,7 @@ abstract class BaseResource
 
     /**
      * @param null $fields A comma-separated list of fields to return.
+     *
      * @return array
      */
     protected function prepareFields($fields = null)

@@ -2,14 +2,14 @@
 
 namespace Secomapp\Resources;
 
-
 use Secomapp\BaseResource;
 
 class Metafield extends BaseResource
 {
     /**
      * @param string $resourceType The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
-     * @param string $resourceId The Id of the resource the metafield will be associated with. This can be variants, products, orders, customers, custom_collections, etc.
+     * @param string $resourceId   The Id of the resource the metafield will be associated with. This can be variants, products, orders, customers, custom_collections, etc.
+     *
      * @return mixed
      */
     public function allForResource($resourceType, $resourceId)
@@ -18,15 +18,16 @@ class Metafield extends BaseResource
     }
 
     /**
-     * @param array|boolean $params
+     * @param array|bool $params
+     *
      * @return mixed
      */
     public function all($params = false)
     {
         if ($params) {
-            return $this->client->get("metafields.json", 'metafields', $params);
+            return $this->client->get('metafields.json', 'metafields', $params);
         } else {
-            return $this->client->get("metafields.json", 'metafields');
+            return $this->client->get('metafields.json', 'metafields');
         }
     }
 
@@ -34,8 +35,8 @@ class Metafield extends BaseResource
      * Retrieves the resource metafield with the given id.
      *
      * @param string $resourceType The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
-     * @param string $resourceId The Id of the resource the metafield will be associated with. This can be variants, products, orders, customers, custom_collections, etc.
-     * @param string $metafieldId The metafield id
+     * @param string $resourceId   The Id of the resource the metafield will be associated with. This can be variants, products, orders, customers, custom_collections, etc.
+     * @param string $metafieldId  The metafield id
      */
     public function getForResource($resourceType, $resourceId, $metafieldId)
     {
@@ -54,12 +55,13 @@ class Metafield extends BaseResource
 
     /**
      * @param string $resourceType The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
-     * @param string $resourceId The Id of the resource the metafield will be associated with. This can be variants, products, orders, customers, custom_collections, etc.
-     * @param array $metafield
+     * @param string $resourceId   The Id of the resource the metafield will be associated with. This can be variants, products, orders, customers, custom_collections, etc.
+     * @param array  $metafield
      */
     public function createForResource($resourceType, $resourceId, $metafield)
     {
         $params = ['metafield' => $metafield];
+
         return $this->client->post("{$resourceType}/{$resourceId}/metafields.json", 'metafield', $params);
     }
 
@@ -69,35 +71,38 @@ class Metafield extends BaseResource
     public function create($metafield)
     {
         $params = ['metafield' => $metafield];
-        return $this->client->post("metafields.json", 'metafield', $params);
+
+        return $this->client->post('metafields.json', 'metafield', $params);
     }
 
     /**
      * @param string $resourceType The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
-     * @param string $resourceId The Id of the resource the metafield will be associated with. This can be variants, products, orders, customers, custom_collections, etc.
-     * @param string $metafieldId The metafield id
-     * @param array $metafield
+     * @param string $resourceId   The Id of the resource the metafield will be associated with. This can be variants, products, orders, customers, custom_collections, etc.
+     * @param string $metafieldId  The metafield id
+     * @param array  $metafield
      */
     public function updateForResource($resourceType, $resourceId, $metafieldId, $metafield)
     {
         $params = ['metafield' => $metafield];
+
         return $this->client->put("{$resourceType}/{$resourceId}/metafields/{$metafieldId}.json", 'metafield', $params);
     }
 
     /**
      * @param string $metafieldId The metafield id
-     * @param array $metafield
+     * @param array  $metafield
      */
     public function update($metafieldId, $metafield)
     {
         $params = ['metafield' => $metafield];
+
         return $this->client->put("metafields/{$metafieldId}.json", 'metafield', $params);
     }
 
     /**
-     * @param string $resourceType The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
-     * @param string $resourceId The Id of the resource the metafield will be associated with. This can be variants, products, orders, customers, custom_collections, etc.
-     * @param @param string $metafieldId The metafield id
+     * @param string        $resourceType The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
+     * @param string        $resourceId   The Id of the resource the metafield will be associated with. This can be variants, products, orders, customers, custom_collections, etc.
+     * @param @param string $metafieldId  The metafield id
      */
     public function deleteForResource($resourceType, $resourceId, $metafieldId)
     {
