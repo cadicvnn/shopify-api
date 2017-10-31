@@ -24,7 +24,7 @@ class Webhook extends BaseResource
             'id' => $id,
             'address' => $url
         ]];
-        return $this->client->put("webhooks/{$id}.json", 'webook', $params);
+        return $this->client->put("webhooks/{$id}.json", 'webhook', $params);
     }
 
     /**
