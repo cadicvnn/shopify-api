@@ -2,7 +2,6 @@
 
 namespace Secomapp\Resources;
 
-
 use Secomapp\BaseResource;
 
 class Order extends BaseResource
@@ -20,6 +19,7 @@ class Order extends BaseResource
     public function get($id, $fields = null)
     {
         $params = $this->prepareFields($fields);
+
         return $this->client->get("orders/{$id}.json", 'order', $params);
     }
 }

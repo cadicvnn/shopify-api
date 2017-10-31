@@ -2,7 +2,6 @@
 
 namespace Secomapp\Resources;
 
-
 use Secomapp\BaseResource;
 use Secomapp\Contracts\ChargeContract;
 
@@ -16,14 +15,14 @@ class ApplicationCharge extends BaseResource implements ChargeContract
     public function activate($id)
     {
         return $this->client->post("application_charges/{$id}/activate.json", 'application_charges', [
-            'application_charges' => $id
+            'application_charges' => $id,
         ]);
     }
 
     public function create($plan)
     {
         return $this->client->post('application_charges.json', 'application_charges', [
-            'application_charges' => $plan
+            'application_charges' => $plan,
         ]);
     }
 

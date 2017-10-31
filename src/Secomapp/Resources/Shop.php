@@ -2,7 +2,6 @@
 
 namespace Secomapp\Resources;
 
-
 use Secomapp\BaseResource;
 
 class Shop extends BaseResource

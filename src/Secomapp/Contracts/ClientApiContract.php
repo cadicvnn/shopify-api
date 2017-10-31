@@ -2,7 +2,6 @@
 
 namespace Secomapp\Contracts;
 
-
 interface ClientApiContract
 {
     public function isValidRequest($params);

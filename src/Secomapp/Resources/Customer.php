@@ -2,7 +2,6 @@
 
 namespace Secomapp\Resources;
 
-
 use Secomapp\BaseResource;
 
 class Customer extends BaseResource
@@ -20,14 +19,16 @@ class Customer extends BaseResource
     public function get($id, $fields = null)
     {
         $params = $this->prepareFields($fields);
+
         return $this->client->get("customers/{$id}.json", 'customer', $params);
     }
 
     public function update($id, $customer)
     {
         $params = [
-            'customer' => $customer
+            'customer' => $customer,
         ];
+
         return $this->client->put("customers/{$id}.json", 'customer', $params);
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Secomapp\Resources;
 
-
 use Secomapp\BaseResource;
 use Secomapp\Contracts\ChargeContract;
 
@@ -16,14 +15,14 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
     public function activate($id)
     {
         return $this->client->post("recurring_application_charges/{$id}/activate.json", 'recurring_application_charge', [
-            'recurring_application_charge' => $id
+            'recurring_application_charge' => $id,
         ]);
     }
 
     public function create($plan)
     {
         return $this->client->post('recurring_application_charges.json', 'recurring_application_charge', [
-            'recurring_application_charge' => $plan
+            'recurring_application_charge' => $plan,
         ]);
     }
 
