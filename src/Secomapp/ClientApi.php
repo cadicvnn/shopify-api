@@ -37,7 +37,7 @@ class ClientApi implements ClientApiContract
             $client->setAccessToken($accessToken);
         }
 
-        $this->client = new Client($httpClient);
+        $this->client = $client;
     }
 
     public function setShopName($shopName)
