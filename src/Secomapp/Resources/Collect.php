@@ -14,7 +14,7 @@ class Collect extends BaseResource
     public function get($customCollectionId, $params, $fields = null)
     {
         $params = $this->prepareFields($fields);
-        
+
         return $this->client->get("collects.json?{$customCollectionId}", 'collects', $params);
     }
 
