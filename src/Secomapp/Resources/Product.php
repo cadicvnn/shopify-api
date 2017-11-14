@@ -13,9 +13,9 @@ class Product extends BaseResource
 
     public function update($id, $product)
     {
-    	$params = ['product' => $product];
+        $params = ['product' => $product];
 
-    	return $this->client->put("products/{$id}.json", 'product', $params);
+        return $this->client->put("products/{$id}.json", 'product', $params);
     }
 
     public function delete($id)

@@ -6,7 +6,7 @@ use Secomapp\BaseResource;
 
 class Collect extends BaseResource
 {
-	public function all($params = [])
+    public function all($params = [])
     {
         return $this->client->get('collects.json', 'collects', $params);
     }
@@ -14,6 +14,7 @@ class Collect extends BaseResource
     public function get($customCollectionId, $params, $fields = null)
     {
         $params = $this->prepareFields($fields);
+        
         return $this->client->get("collects.json?{$customCollectionId}", 'collects', $params);
     }
 
