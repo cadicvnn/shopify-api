@@ -20,7 +20,7 @@ class Collect extends BaseResource
             $url = "{$url}?collection_id={$customCollectionId}";
         }
         if ($productId) {
-            $url = $url . ($customCollectionId ? '&' : '?') . "product_id={$productId}";
+            $url = $url.($customCollectionId ? '&' : '?')."product_id={$productId}";
         }
         return $this->client->get($url, 'collects', $params);
     }
