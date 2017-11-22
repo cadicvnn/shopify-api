@@ -11,11 +11,18 @@ class Collect extends BaseResource
         return $this->client->get('collects.json', 'collects', $params);
     }
 
-    public function get($customCollectionId, $params, $fields = null)
+    public function get($customCollectionId, $productId, $params, $fields = null)
     {
-        $params = $this->prepareFields($fields);
+        $params = array_merge($params, $this->prepareFields($fields));
 
-        return $this->client->get("collects.json?{$customCollectionId}", 'collects', $params);
+        $url = 'collects.json';
+        if ($customCollectionId) {
+            $url = "{$url}?collection_id={$customCollectionId}";
+        }
+        if ($productId) {
+            $url = $url . ($customCollectionId ? '&' : '?') . "product_id={$productId}";
+        }
+        return $this->client->get($url, 'collects', $params);
     }
 
     public function create($params)
