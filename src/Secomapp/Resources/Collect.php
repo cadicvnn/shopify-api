@@ -22,6 +22,7 @@ class Collect extends BaseResource
         if ($productId) {
             $url = $url.($customCollectionId ? '&' : '?')."product_id={$productId}";
         }
+
         return $this->client->get($url, 'collects', $params);
     }
 
