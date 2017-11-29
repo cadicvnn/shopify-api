@@ -11,6 +11,13 @@ class Product extends BaseResource
         return $this->client->get('products.json', 'products', $params);
     }
 
+    public function get($id, $fields = null)
+    {
+        $params = $this->prepareFields($fields);
+
+        return $this->client->get("products/{$id}.json", 'product', $params);
+    }
+
     public function update($id, $product)
     {
         $params = ['product' => $product];
