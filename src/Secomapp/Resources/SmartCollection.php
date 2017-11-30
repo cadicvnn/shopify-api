@@ -53,6 +53,13 @@ class SmartCollection extends BaseResource
         return $this->client->post('smart_collections.json', 'smart_collection', $params);
     }
 
+    public function update($id, $params)
+    {
+        $params = ['custom_collection' => $params];
+
+        return $this->client->put("smart_collections/{$id}.json", 'smart_collection', $params);
+    }
+
     public function delete($id)
     {
         $this->client->delete("smart_collections/{$id}.json");
