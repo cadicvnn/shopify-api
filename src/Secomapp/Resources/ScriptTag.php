@@ -6,12 +6,12 @@ use Secomapp\BaseResource;
 
 class ScriptTag extends BaseResource
 {
-    public function count($params)
+    public function count($params = [])
     {
         return $this->client->get('script_tags/count.json', 'count', $params);
     }
 
-    public function all($params)
+    public function all($params = [])
     {
         return $this->client->get('script_tags.json', 'script_tags', $params);
     }

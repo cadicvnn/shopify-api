@@ -15,7 +15,7 @@ class CustomCollection extends BaseResource
      *
      * @return mixed
      */
-    public function all($params = null)
+    public function all($params = [])
     {
         return $this->client->get('custom_collections.json', 'custom_collections', $params);
     }

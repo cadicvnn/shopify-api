@@ -22,13 +22,9 @@ class Metafield extends BaseResource
      *
      * @return mixed
      */
-    public function all($params = false)
+    public function all($params = [])
     {
-        if ($params) {
-            return $this->client->get('metafields.json', 'metafields', $params);
-        } else {
-            return $this->client->get('metafields.json', 'metafields');
-        }
+        return $this->client->get('metafields.json', 'metafields', $params);
     }
 
     /**

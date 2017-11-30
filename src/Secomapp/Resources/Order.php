@@ -6,12 +6,12 @@ use Secomapp\BaseResource;
 
 class Order extends BaseResource
 {
-    public function count($params)
+    public function count($params = [])
     {
         return $this->client->get('orders/count.json', 'count', $params);
     }
 
-    public function all($params)
+    public function all($params = [])
     {
         return $this->client->get('orders.json', 'orders', $params);
     }

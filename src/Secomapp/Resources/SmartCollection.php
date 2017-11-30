@@ -6,7 +6,7 @@ use Secomapp\BaseResource;
 
 class SmartCollection extends BaseResource
 {
-    public function count($params)
+    public function count($params = [])
     {
         return $this->client->get('smart_collections/count.json', 'count', $params);
     }
@@ -20,7 +20,7 @@ class SmartCollection extends BaseResource
      *
      * @return mixed
      */
-    public function all($params = null)
+    public function all($params = [])
     {
         return $this->client->get('smart_collections.json', 'smart_collections', $params);
     }
