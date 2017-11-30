@@ -6,6 +6,11 @@ use Secomapp\BaseResource;
 
 class Collect extends BaseResource
 {
+    public function count($params = [])
+    {
+        return $this->client->get('collects/count.json', 'count', $params);
+    }
+
     public function all($params = [])
     {
         return $this->client->get('collects.json', 'collects', $params);
