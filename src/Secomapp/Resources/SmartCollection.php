@@ -6,6 +6,11 @@ use Secomapp\BaseResource;
 
 class SmartCollection extends BaseResource
 {
+    public function count($params)
+    {
+        return $this->client->get('smart_collections/count.json', 'count', $params);
+    }
+
     /**
      * Retrieves a list of all objects.
      * Listing theme assets only returns metadata about each asset
