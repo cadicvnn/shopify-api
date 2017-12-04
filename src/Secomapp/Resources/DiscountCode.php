@@ -2,19 +2,19 @@
 
 namespace Secomapp\Resources;
 
-use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 /**
  * Class Discount is a class for manipulating Shopify discount code.
  *
  * @author baorv <roanvanbao@gmail.com>
+ *
  * @version 0.0.1
  */
 class DiscountCode extends BaseResource
 {
-
     /**
      * Create a new DiscountCode.
      *
@@ -28,7 +28,7 @@ class DiscountCode extends BaseResource
     public function create($priceRuleId, $discountCode)
     {
         return $this->client->post("price_rules/{$priceRuleId}/discount_codes.json", 'discount_code', [
-            'code' => $discountCode
+            'code' => $discountCode,
         ]);
     }
 
@@ -46,7 +46,7 @@ class DiscountCode extends BaseResource
     public function update($priceRuleId, $discountCodeId, $discountCode)
     {
         return $this->client->put("price_rules/{$priceRuleId}/discount_codes/{$discountCodeId}.json", 'discount_code', [
-            'discount_code' => $discountCode
+            'discount_code' => $discountCode,
         ]);
     }
 

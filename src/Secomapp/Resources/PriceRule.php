@@ -7,15 +7,14 @@ use Secomapp\Exceptions\ShopifyApiException;
 use stdClass;
 
 /**
- * Class PriceRule handles all requests for price rules in shopify API
+ * Class PriceRule handles all requests for price rules in shopify API.
  *
- * @package Secomapp\Resources
  * @author baorv <roanvanbao@gmail.com>
+ *
  * @version 0.0.1
  */
 class PriceRule extends BaseResource
 {
-
     /**
      * Create a new PriceRule.
      *
@@ -25,7 +24,8 @@ class PriceRule extends BaseResource
      *
      * @return stdClass
      */
-    public function create($params) {
+    public function create($params)
+    {
         return $this->client->post('price_rules.json', 'price_rule', [
             'price_rule' => $params,
         ]);
@@ -41,7 +41,8 @@ class PriceRule extends BaseResource
      *
      * @return stdClass
      */
-    public function update($id, $params) {
+    public function update($id, $params)
+    {
         return $this->client->put("price_rules/{$id}.json", 'price_rule', [
             'price_rule' => $params,
         ]);
@@ -56,7 +57,8 @@ class PriceRule extends BaseResource
      *
      * @return array
      */
-    public function all($params = []) {
+    public function all($params = [])
+    {
         return $this->client->get('price_rules.json', 'price_rules', $params);
     }
 
@@ -70,7 +72,8 @@ class PriceRule extends BaseResource
      *
      * @return stdClass
      */
-    public function get($id, $fields = null) {
+    public function get($id, $fields = null)
+    {
         return $this->client->get("price_rules/{$id}.json", 'price_rule', $this->prepareParams($fields));
     }
 
@@ -81,7 +84,8 @@ class PriceRule extends BaseResource
      *
      * @throws ShopifyApiException
      */
-    public function delete($id) {
+    public function delete($id)
+    {
         $this->client->delete("price_rules/{$id}.json");
     }
 }

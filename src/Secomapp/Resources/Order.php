@@ -92,8 +92,9 @@ class Order extends BaseResource
      *
      * @param array $params
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($params)
     {

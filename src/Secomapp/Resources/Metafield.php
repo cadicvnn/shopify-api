@@ -2,9 +2,9 @@
 
 namespace Secomapp\Resources;
 
-use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 class Metafield extends BaseResource
 {
@@ -106,7 +106,7 @@ class Metafield extends BaseResource
     public function create($params)
     {
         return $this->client->post('metafields.json', 'metafield', [
-            'metafield' => $params
+            'metafield' => $params,
         ]);
     }
 
@@ -124,7 +124,7 @@ class Metafield extends BaseResource
     public function createForResource($resource, $resourceId, $params)
     {
         return $this->client->post("{$resource}/{$resourceId}/metafields.json", 'metafield', [
-            'metafield' => $params
+            'metafield' => $params,
         ]);
     }
 
@@ -141,7 +141,7 @@ class Metafield extends BaseResource
     public function update($id, $params)
     {
         return $this->client->put("metafields/{$id}.json", 'metafield', [
-            'metafield' => $params
+            'metafield' => $params,
         ]);
     }
 
@@ -160,7 +160,7 @@ class Metafield extends BaseResource
     public function updateForResource($resource, $resourceId, $id, $params)
     {
         return $this->client->put("{$resource}/{$resourceId}/metafields/{$id}.json", 'metafield', [
-            'metafield' => $params
+            'metafield' => $params,
         ]);
     }
 

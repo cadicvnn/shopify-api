@@ -37,7 +37,5 @@ abstract class BaseResource
         } else {
             return array_filter(compact(func_get_args()));
         }
-
-
     }
 }

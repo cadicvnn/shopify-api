@@ -2,9 +2,9 @@
 
 namespace Secomapp\Resources;
 
-use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 class Customer extends BaseResource
 {

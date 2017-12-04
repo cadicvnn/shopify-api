@@ -75,7 +75,7 @@ class ClientApi implements ClientApiContract
     /**
      * @param string $url
      * @param string $extract
-     * @param array $params
+     * @param array  $params
      *
      * @throws ShopifyApiException
      *
@@ -94,7 +94,7 @@ class ClientApi implements ClientApiContract
     /**
      * @param string $url
      * @param string $extract
-     * @param array $params
+     * @param array  $params
      *
      * @throws ShopifyApiException
      *
@@ -113,7 +113,7 @@ class ClientApi implements ClientApiContract
     /**
      * @param string $url
      * @param string $extract
-     * @param array $params
+     * @param array  $params
      *
      * @throws ShopifyApiException
      *
@@ -131,7 +131,7 @@ class ClientApi implements ClientApiContract
 
     /**
      * @param string $url
-     * @param array $params
+     * @param array  $params
      *
      * @throws ShopifyApiException
      */
