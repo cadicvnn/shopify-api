@@ -9,12 +9,13 @@ use Secomapp\Exceptions\ShopifyApiException;
 class Metafield extends BaseResource
 {
     /**
-     * Get metafields that belong to a store
+     * Get metafields that belong to a store.
      *
      * @param array $params
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($params = [])
     {
@@ -22,13 +23,14 @@ class Metafield extends BaseResource
     }
 
     /**
-     * Get metafields that belong to a resource
+     * Get metafields that belong to a resource.
      *
-     * @param string $resource The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
+     * @param string $resource   The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
      * @param string $resourceId The Id of the resource the metafield will be associated with.
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function allForResource($resource, $resourceId)
     {
@@ -36,10 +38,11 @@ class Metafield extends BaseResource
     }
 
     /**
-     * Get a count of metafields that belong to a store
+     * Get a count of metafields that belong to a store.
      *
-     * @return integer
      * @throws ShopifyApiException
+     *
+     * @return int
      */
     public function count()
     {
@@ -47,13 +50,14 @@ class Metafield extends BaseResource
     }
 
     /**
-     * Get a count of metafields that belong to a resource
+     * Get a count of metafields that belong to a resource.
      *
-     * @param string $resource The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
+     * @param string $resource   The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
      * @param string $resourceId The Id of the resource the metafield will be associated with.
      *
-     * @return integer
      * @throws ShopifyApiException
+     *
+     * @return int
      */
     public function countForResource($resource, $resourceId)
     {
@@ -61,12 +65,13 @@ class Metafield extends BaseResource
     }
 
     /**
-     * Get a single store metafield by its ID
+     * Get a single store metafield by its ID.
      *
      * @param string $id
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($id)
     {
@@ -74,14 +79,15 @@ class Metafield extends BaseResource
     }
 
     /**
-     * Get a single resource metafield by its ID
+     * Get a single resource metafield by its ID.
      *
-     * @param string $resource The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
+     * @param string $resource   The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
      * @param string $resourceId The Id of the resource the metafield will be associated with.
      * @param string $id
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function getForResource($resource, $resourceId, $id)
     {
@@ -89,12 +95,13 @@ class Metafield extends BaseResource
     }
 
     /**
-     * Create a new metafield for a store
+     * Create a new metafield for a store.
      *
      * @param array $params
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($params)
     {
@@ -104,14 +111,15 @@ class Metafield extends BaseResource
     }
 
     /**
-     * Create a new metafield for a resource
+     * Create a new metafield for a resource.
      *
-     * @param string $resource The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
+     * @param string $resource   The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
      * @param string $resourceId The Id of the resource the metafield will be associated with.
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function createForResource($resource, $resourceId, $params)
     {
@@ -121,13 +129,14 @@ class Metafield extends BaseResource
     }
 
     /**
-     * Update a store metafield
+     * Update a store metafield.
      *
      * @param string $id
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function update($id, $params)
     {
@@ -137,15 +146,16 @@ class Metafield extends BaseResource
     }
 
     /**
-     * Update a resource metafield
+     * Update a resource metafield.
      *
-     * @param string $resource The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
+     * @param string $resource   The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
      * @param string $resourceId The Id of the resource the metafield will be associated with.
      * @param string $id
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function updateForResource($resource, $resourceId, $id, $params)
     {
@@ -155,7 +165,7 @@ class Metafield extends BaseResource
     }
 
     /**
-     * Delete a store metafield
+     * Delete a store metafield.
      *
      * @param string $id
      *
@@ -167,9 +177,9 @@ class Metafield extends BaseResource
     }
 
     /**
-     * Delete a resource metafield
+     * Delete a resource metafield.
      *
-     * @param string $resource The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
+     * @param string $resource   The type of shopify resource to obtain metafields for. This could be variants, products, orders, customers, custom_collections.
      * @param string $resourceId The Id of the resource the metafield will be associated with.
      * @param string $id
      *

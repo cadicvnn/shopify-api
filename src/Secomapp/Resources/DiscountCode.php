@@ -16,13 +16,14 @@ class DiscountCode extends BaseResource
 {
 
     /**
-     * Create a new DiscountCode
+     * Create a new DiscountCode.
      *
      * @param string $priceRuleId
      * @param string $discountCode
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($priceRuleId, $discountCode)
     {
@@ -32,14 +33,15 @@ class DiscountCode extends BaseResource
     }
 
     /**
-     * Modify an existing DiscountCode
+     * Modify an existing DiscountCode.
      *
      * @param string $priceRuleId
      * @param string $discountCodeId
      * @param string $discountCode
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function update($priceRuleId, $discountCodeId, $discountCode)
     {
@@ -49,13 +51,14 @@ class DiscountCode extends BaseResource
     }
 
     /**
-     * Receive a single DiscountCode
+     * Receive a single DiscountCode.
      *
      * @param string $priceRuleId
      * @param string $discountCodeId
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($priceRuleId, $discountCodeId)
     {
@@ -63,12 +66,13 @@ class DiscountCode extends BaseResource
     }
 
     /**
-     * Retrieve a list of discount codes
+     * Retrieve a list of discount codes.
      *
      * @param string $priceRuleId
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function all($priceRuleId)
     {
@@ -76,7 +80,7 @@ class DiscountCode extends BaseResource
     }
 
     /**
-     * Remove a DiscountCode from the database
+     * Remove a DiscountCode from the database.
      *
      * @param string $priceRuleId
      * @param string $discountCodeId

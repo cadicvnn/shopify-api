@@ -9,12 +9,13 @@ use Secomapp\Exceptions\ShopifyApiException;
 class Customer extends BaseResource
 {
     /**
-     * Receive a list of all Customers
+     * Receive a list of all Customers.
      *
      * @param array $params
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($params = [])
     {
@@ -22,13 +23,14 @@ class Customer extends BaseResource
     }
 
     /**
-     * Search for customers matching supplied query
+     * Search for customers matching supplied query.
      *
      * @param string $query
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return array
-     * @throws ShopifyApiException
      */
     public function search($query, $params = [])
     {
@@ -36,13 +38,14 @@ class Customer extends BaseResource
     }
 
     /**
-     * Receive a single Customer
+     * Receive a single Customer.
      *
      * @param string $id
      * @param string $fields
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($id, $fields = null)
     {
@@ -50,28 +53,30 @@ class Customer extends BaseResource
     }
 
     /**
-     * Create a new Customer
+     * Create a new Customer.
      *
      * @param array $params
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($params)
     {
         return $this->client->post('customers.json', 'customer', [
-            'customer' => $params
+            'customer' => $params,
         ]);
     }
 
     /**
-     * Modify an existing Customer
+     * Modify an existing Customer.
      *
      * @param string $id
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function update($id, $params)
     {
@@ -81,12 +86,13 @@ class Customer extends BaseResource
     }
 
     /**
-     * Create account activation URL
+     * Create account activation URL.
      *
      * @param string $id
      *
-     * @return string
      * @throws ShopifyApiException
+     *
+     * @return string
      */
     public function createAccountActivationUrl($id)
     {
@@ -94,13 +100,14 @@ class Customer extends BaseResource
     }
 
     /**
-     * Send an invite
+     * Send an invite.
      *
      * @param string $id
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function sendInvite($id, $params = [])
     {
@@ -108,7 +115,7 @@ class Customer extends BaseResource
     }
 
     /**
-     * Remove a Customer from the database
+     * Remove a Customer from the database.
      *
      * @param string $id
      *
@@ -120,10 +127,11 @@ class Customer extends BaseResource
     }
 
     /**
-     * Receive a count of all Customers
+     * Receive a count of all Customers.
      *
-     * @return integer
      * @throws ShopifyApiException
+     *
+     * @return int
      */
     public function count()
     {
@@ -131,12 +139,13 @@ class Customer extends BaseResource
     }
 
     /**
-     * Find orders belonging to this customer
+     * Find orders belonging to this customer.
      *
      * @param string $id
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function orders($id)
     {

@@ -2,19 +2,20 @@
 
 namespace Secomapp\Resources;
 
-use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 class Order extends BaseResource
 {
     /**
-     * Retrieve a list of Orders (OPEN Orders by default, use status=any for ALL orders)
+     * Retrieve a list of Orders (OPEN Orders by default, use status=any for ALL orders).
      *
      * @param array $params
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($params = [])
     {
@@ -22,13 +23,14 @@ class Order extends BaseResource
     }
 
     /**
-     * Receive a single Order
+     * Receive a single Order.
      *
      * @param string $id
      * @param string $fields
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($id, $fields = null)
     {
@@ -36,12 +38,13 @@ class Order extends BaseResource
     }
 
     /**
-     * Receive a count of all Orders
+     * Receive a count of all Orders.
      *
      * @param array $params
      *
-     * @return integer
      * @throws ShopifyApiException
+     *
+     * @return int
      */
     public function count($params = [])
     {
@@ -49,7 +52,7 @@ class Order extends BaseResource
     }
 
     /**
-     * Close an Order
+     * Close an Order.
      *
      * @param string $id
      *
@@ -61,7 +64,7 @@ class Order extends BaseResource
     }
 
     /**
-     * Open an Order
+     * Open an Order.
      *
      * @param string $id
      *
@@ -73,7 +76,7 @@ class Order extends BaseResource
     }
 
     /**
-     * Cancel an Order
+     * Cancel an Order.
      *
      * @param string $id
      *
@@ -85,7 +88,7 @@ class Order extends BaseResource
     }
 
     /**
-     * Create a new Order
+     * Create a new Order.
      *
      * @param array $params
      *
@@ -95,28 +98,29 @@ class Order extends BaseResource
     public function create($params)
     {
         return $this->client->post('orders.json', 'order', [
-            'order' => $params
+            'order' => $params,
         ]);
     }
 
     /**
-     * Modify an existing Order
+     * Modify an existing Order.
      *
      * @param string $id
      * @param array $params
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function update($id, $params)
     {
         return $this->client->put("orders/{$id}.json", 'order', [
-            'order' => $params
+            'order' => $params,
         ]);
     }
 
     /**
-     * Remove a Order from the database
+     * Remove a Order from the database.
      *
      * @param string $id
      *

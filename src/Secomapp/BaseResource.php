@@ -26,7 +26,7 @@ abstract class BaseResource
      * All entries of input equal to false (see converting to boolean) will be removed.
      *
      * @param mixed $varName
-     * @param mixed $_ [optional]
+     * @param mixed $_       [optional]
      *
      * @return string query string
      */

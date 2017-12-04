@@ -2,19 +2,20 @@
 
 namespace Secomapp\Resources;
 
-use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 class Product extends BaseResource
 {
     /**
-     * Receive a list of all Products
+     * Receive a list of all Products.
      *
      * @param array $params
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($params = [])
     {
@@ -22,12 +23,13 @@ class Product extends BaseResource
     }
 
     /**
-     * Receive a count of all Products
+     * Receive a count of all Products.
      *
      * @param array $params
      *
-     * @return integer
      * @throws ShopifyApiException
+     *
+     * @return int
      */
     public function count($params = [])
     {
@@ -35,13 +37,14 @@ class Product extends BaseResource
     }
 
     /**
-     * Receive a single Product
+     * Receive a single Product.
      *
      * @param string $id
      * @param string $fields
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($id, $fields = null)
     {
@@ -49,38 +52,40 @@ class Product extends BaseResource
     }
 
     /**
-     * Create a new Product
+     * Create a new Product.
      *
      * @param array $params
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($params)
     {
         return $this->client->post('products.json', 'product', [
-            'product' => $params
+            'product' => $params,
         ]);
     }
 
     /**
-     * Modify an existing Product
+     * Modify an existing Product.
      *
      * @param string $id
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function update($id, $params)
     {
         return $this->client->put("products/{$id}.json", 'product', [
-            'product' => $params
+            'product' => $params,
         ]);
     }
 
     /**
-     * Remove a Product from the database
+     * Remove a Product from the database.
      *
      * @param string $id
      *

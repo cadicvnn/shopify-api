@@ -2,19 +2,20 @@
 
 namespace Secomapp\Resources;
 
-use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 class Shop extends BaseResource
 {
     /**
-     * Receive a single Shop
+     * Receive a single Shop.
      *
      * @param string $fields
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($fields = null)
     {

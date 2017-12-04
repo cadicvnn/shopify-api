@@ -17,61 +17,65 @@ class PriceRule extends BaseResource
 {
 
     /**
-     * Create a new PriceRule
+     * Create a new PriceRule.
      *
      * @param array $params
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($params) {
         return $this->client->post('price_rules.json', 'price_rule', [
-            'price_rule' => $params
+            'price_rule' => $params,
         ]);
     }
 
     /**
-     * Modify an existing PriceRule
+     * Modify an existing PriceRule.
      *
      * @param string $id
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function update($id, $params) {
         return $this->client->put("price_rules/{$id}.json", 'price_rule', [
-            'price_rule' => $params
+            'price_rule' => $params,
         ]);
     }
 
     /**
-     * Retrieve a list of price rules
+     * Retrieve a list of price rules.
      *
      * @param array $params
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($params = []) {
         return $this->client->get('price_rules.json', 'price_rules', $params);
     }
 
     /**
-     * Receive a single PriceRule
+     * Receive a single PriceRule.
      *
      * @param string $id
      * @param string $fields
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($id, $fields = null) {
         return $this->client->get("price_rules/{$id}.json", 'price_rule', $this->prepareParams($fields));
     }
 
     /**
-     * Remove a PriceRule from the database
+     * Remove a PriceRule from the database.
      *
      * @param string $id
      *

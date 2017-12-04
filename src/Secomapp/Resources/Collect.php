@@ -9,22 +9,23 @@ use Secomapp\Exceptions\ShopifyApiException;
 class Collect extends BaseResource
 {
     /**
-     * Create a new Collect
+     * Create a new Collect.
      *
      * @param array $params
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($params)
     {
         return $this->client->post('collects.json', 'collect', [
-            'collect' => $params
+            'collect' => $params,
         ]);
     }
 
     /**
-     * Remove a Collect from the database
+     * Remove a Collect from the database.
      *
      * @param string $id
      *
@@ -36,12 +37,13 @@ class Collect extends BaseResource
     }
 
     /**
-     * Receive a list of all Collects
+     * Receive a list of all Collects.
      *
      * @param array $params
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($params = [])
     {
@@ -49,12 +51,13 @@ class Collect extends BaseResource
     }
 
     /**
-     * Receive a count of all Collects
+     * Receive a count of all Collects.
      *
      * @param array $params
      *
-     * @return integer
      * @throws ShopifyApiException
+     *
+     * @return int
      */
     public function count($params = [])
     {
@@ -62,13 +65,14 @@ class Collect extends BaseResource
     }
 
     /**
-     * Receive a single Collect
+     * Receive a single Collect.
      *
      * @param string $id
      * @param string $fields comma-separated list of fields to include in the response
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($id, $fields = null)
     {

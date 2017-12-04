@@ -2,19 +2,20 @@
 
 namespace Secomapp\Resources;
 
-use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 class Webhook extends BaseResource
 {
     /**
-     * Receive a list of all Webhooks
+     * Receive a list of all Webhooks.
      *
      * @param array $params
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($params = [])
     {
@@ -22,12 +23,13 @@ class Webhook extends BaseResource
     }
 
     /**
-     * Receive a count of all Webhooks
+     * Receive a count of all Webhooks.
      *
      * @param array $params
      *
-     * @return integer
      * @throws ShopifyApiException
+     *
+     * @return int
      */
     public function count($params = [])
     {
@@ -35,13 +37,14 @@ class Webhook extends BaseResource
     }
 
     /**
-     * Receive a single Webhook
+     * Receive a single Webhook.
      *
      * @param string $id
      * @param string $fields
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($id, $fields = null)
     {
@@ -49,14 +52,15 @@ class Webhook extends BaseResource
     }
 
     /**
-     * Create a new Webhook
+     * Create a new Webhook.
      *
      * @param string $topic
      * @param string $url
      * @param string $format
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($topic, $url, $format = 'json')
     {
@@ -70,13 +74,14 @@ class Webhook extends BaseResource
     }
 
     /**
-     * Modify an existing Webhook
+     * Modify an existing Webhook.
      *
      * @param string $id
      * @param string $url
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function update($id, $url)
     {
@@ -87,7 +92,7 @@ class Webhook extends BaseResource
     }
 
     /**
-     * Remove a Webhook from the database
+     * Remove a Webhook from the database.
      *
      * @param string $id
      *

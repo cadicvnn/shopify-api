@@ -2,20 +2,21 @@
 
 namespace Secomapp\Resources;
 
-use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Contracts\ChargeContract;
 use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 class ApplicationCharge extends BaseResource implements ChargeContract
 {
     /**
-     * Create a new one-time application charge
+     * Create a new one-time application charge.
      *
      * @param array $params
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($params)
     {
@@ -25,13 +26,14 @@ class ApplicationCharge extends BaseResource implements ChargeContract
     }
 
     /**
-     * Receive a single ApplicationCharge
+     * Receive a single ApplicationCharge.
      *
      * @param string $id
      * @param string $fields comma-separated list of fields to include in the response
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($id, $fields = null)
     {
@@ -39,26 +41,28 @@ class ApplicationCharge extends BaseResource implements ChargeContract
     }
 
     /**
-     * Retrieve all one-time application charges
+     * Retrieve all one-time application charges.
      *
      * @param array $params
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($params = [])
     {
-        return $this->client->get("application_charges.json", 'application_charges', $params);
+        return $this->client->get('application_charges.json', 'application_charges', $params);
     }
 
     /**
-     * Activate a one-time application charge
+     * Activate a one-time application charge.
      *
      * @param string $id
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function activate($id, $params = [])
     {
@@ -68,7 +72,7 @@ class ApplicationCharge extends BaseResource implements ChargeContract
     }
 
     /**
-     * Cancel a recurring application charge
+     * Cancel a recurring application charge.
      *
      * @param string $id
      *
@@ -80,13 +84,14 @@ class ApplicationCharge extends BaseResource implements ChargeContract
     }
 
     /**
-     * Customize a recurring application charge
+     * Customize a recurring application charge.
      *
      * @param string $id
-     * @param integer $amount
+     * @param int    $amount
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function customize($id, $amount)
     {

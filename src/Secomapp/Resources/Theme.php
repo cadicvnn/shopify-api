@@ -2,19 +2,20 @@
 
 namespace Secomapp\Resources;
 
-use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 class Theme extends BaseResource
 {
     /**
-     * Receive a list of all Themes
+     * Receive a list of all Themes.
      *
      * @param string $fields comma-separated list of fields to include in the response
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($fields = null)
     {
@@ -22,13 +23,14 @@ class Theme extends BaseResource
     }
 
     /**
-     * Receive a single Theme
+     * Receive a single Theme.
      *
      * @param string $id
      * @param string $fields
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($id, $fields = null)
     {
@@ -36,38 +38,40 @@ class Theme extends BaseResource
     }
 
     /**
-     * Create a new Theme
+     * Create a new Theme.
      *
      * @param array $params
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($params)
     {
         return $this->client->post('themes.json', 'theme', [
-            'theme' => $params
+            'theme' => $params,
         ]);
     }
 
     /**
-     * Modify an existing Theme
+     * Modify an existing Theme.
      *
      * @param string $id
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function update($id, $params)
     {
         return $this->client->put("themes/{$id}.json", 'theme', [
-            'theme' => $params
+            'theme' => $params,
         ]);
     }
 
     /**
-     * Remove a Theme from the database
+     * Remove a Theme from the database.
      *
      * @param string $id
      *

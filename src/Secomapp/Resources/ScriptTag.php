@@ -2,19 +2,20 @@
 
 namespace Secomapp\Resources;
 
-use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 class ScriptTag extends BaseResource
 {
     /**
-     * Receive a list of all ScriptTags
+     * Receive a list of all ScriptTags.
      *
      * @param array $params
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($params = [])
     {
@@ -22,12 +23,13 @@ class ScriptTag extends BaseResource
     }
 
     /**
-     * Receive a count of all ScriptTags
+     * Receive a count of all ScriptTags.
      *
      * @param array $params
      *
-     * @return integer
      * @throws ShopifyApiException
+     *
+     * @return int
      */
     public function count($params = [])
     {
@@ -35,13 +37,14 @@ class ScriptTag extends BaseResource
     }
 
     /**
-     * Receive a single ScriptTag
+     * Receive a single ScriptTag.
      *
      * @param string $id
      * @param string $fields
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($id, $fields = null)
     {
@@ -49,12 +52,13 @@ class ScriptTag extends BaseResource
     }
 
     /**
-     * Create a new ScriptTag
+     * Create a new ScriptTag.
      *
      * @param string $url
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($url)
     {
@@ -65,13 +69,14 @@ class ScriptTag extends BaseResource
     }
 
     /**
-     * Modify an existing ScriptTag
+     * Modify an existing ScriptTag.
      *
      * @param string $id
      * @param string $url
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function update($id, $url)
     {
@@ -82,7 +87,7 @@ class ScriptTag extends BaseResource
     }
 
     /**
-     * Remove a ScriptTag from the database
+     * Remove a ScriptTag from the database.
      *
      * @param string $id
      *

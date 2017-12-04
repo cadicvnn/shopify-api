@@ -9,12 +9,13 @@ use Secomapp\Exceptions\ShopifyApiException;
 class CustomCollection extends BaseResource
 {
     /**
-     * Receive a list of all CustomCollections
+     * Receive a list of all CustomCollections.
      *
      * @param array $params
      *
-     * @return array
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($params = [])
     {
@@ -22,12 +23,13 @@ class CustomCollection extends BaseResource
     }
 
     /**
-     * Receive a count of all CustomCollections
+     * Receive a count of all CustomCollections.
      *
      * @param array $params
      *
-     * @return integer
      * @throws ShopifyApiException
+     *
+     * @return int
      */
     public function count($params = [])
     {
@@ -35,13 +37,14 @@ class CustomCollection extends BaseResource
     }
 
     /**
-     * Receive a single CustomCollection
+     * Receive a single CustomCollection.
      *
      * @param string $id
      * @param string $fields comma-separated list of fields to include in the response
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function get($id, $fields = null)
     {
@@ -49,38 +52,40 @@ class CustomCollection extends BaseResource
     }
 
     /**
-     * Create a new CustomCollection
+     * Create a new CustomCollection.
      *
      * @param array $params
      *
-     * @return stdClass
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function create($params)
     {
         return $this->client->post('custom_collections.json', 'custom_collection', [
-            'custom_collection' => $params
+            'custom_collection' => $params,
         ]);
     }
 
     /**
-     * Modify an existing CustomCollection
+     * Modify an existing CustomCollection.
      *
      * @param string $id
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function createOrUpdate($id, $params)
     {
         return $this->client->put("custom_collections/{$id}.json", 'custom_collection', [
-            'custom_collection' => $params
+            'custom_collection' => $params,
         ]);
     }
 
     /**
-     * Remove a CustomCollection from the database
+     * Remove a CustomCollection from the database.
      *
      * @param string $id
      *

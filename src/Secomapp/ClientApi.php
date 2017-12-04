@@ -73,12 +73,13 @@ class ClientApi implements ClientApiContract
     }
 
     /**
-     * @param $url
-     * @param $extract
+     * @param string $url
+     * @param string $extract
      * @param array $params
      *
-     * @return bool|object
      * @throws ShopifyApiException
+     *
+     * @return bool|object
      */
     public function get($url, $extract, $params = [])
     {
@@ -91,12 +92,13 @@ class ClientApi implements ClientApiContract
     }
 
     /**
-     * @param $url
-     * @param $extract
+     * @param string $url
+     * @param string $extract
      * @param array $params
      *
-     * @return bool|object
      * @throws ShopifyApiException
+     *
+     * @return bool|object
      */
     public function post($url, $extract = null, $params = [])
     {
@@ -109,12 +111,13 @@ class ClientApi implements ClientApiContract
     }
 
     /**
-     * @param $url
-     * @param $extract
+     * @param string $url
+     * @param string $extract
      * @param array $params
      *
-     * @return bool|object
      * @throws ShopifyApiException
+     *
+     * @return bool|object
      */
     public function put($url, $extract, $params = [])
     {
@@ -127,9 +130,9 @@ class ClientApi implements ClientApiContract
     }
 
     /**
-     * @param $url
-     *
+     * @param string $url
      * @param array $params
+     *
      * @throws ShopifyApiException
      */
     public function delete($url, $params = [])

@@ -2,9 +2,9 @@
 
 namespace Secomapp\Resources;
 
-use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 class Asset extends BaseResource
 {
@@ -12,10 +12,11 @@ class Asset extends BaseResource
      * Receive a list of all Assets.
      *
      * @param string $themeId The id of the theme that the asset belongs to
-     * @param string $fields comma-separated list of fields to include in the response
+     * @param string $fields  comma-separated list of fields to include in the response
+     *
+     * @throws ShopifyApiException
      *
      * @return array
-     * @throws ShopifyApiException
      */
     public function all($themeId, $fields = null)
     {
@@ -23,14 +24,15 @@ class Asset extends BaseResource
     }
 
     /**
-     * Receive a single Asset
+     * Receive a single Asset.
      *
      * @param string $themeId The id of the theme that the asset belongs to
-     * @param string $key The key value of the asset, e.g. 'templates/index.liquid' or 'assets/bg-body.gif'.
-     * @param string $fields A comma-separated list of fields to return.
+     * @param string $key     The key value of the asset, e.g. 'templates/index.liquid' or 'assets/bg-body.gif'.
+     * @param string $fields  A comma-separated list of fields to return.
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function get($themeId, $key, $fields = null)
     {
@@ -38,26 +40,27 @@ class Asset extends BaseResource
     }
 
     /**
-     * Creating or Modifying an Asset
+     * Creating or Modifying an Asset.
      *
      * @param string $themeId The id of the theme that the asset belongs to.
-     * @param array $params
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return stdClass
-     * @throws ShopifyApiException
      */
     public function createOrUpdate($themeId, $params)
     {
         return $this->client->put("themes/{$themeId}/assets.json", 'asset', [
-            'asset' => $params
+            'asset' => $params,
         ]);
     }
 
     /**
-     * Remove a Asset from the database
+     * Remove a Asset from the database.
      *
      * @param string $themeId The id of the theme that the asset belongs to.
-     * @param string $key The key value of the asset, e.g. 'templates/index.liquid' or 'assets/bg-body.gif'.
+     * @param string $key     The key value of the asset, e.g. 'templates/index.liquid' or 'assets/bg-body.gif'.
      *
      * @throws ShopifyApiException
      */
