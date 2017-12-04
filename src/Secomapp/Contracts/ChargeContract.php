@@ -2,13 +2,56 @@
 
 namespace Secomapp\Contracts;
 
+use Secomapp\Exceptions\ShopifyApiException;
+
 interface ChargeContract
 {
-    public function get($id);
+    /**
+     * Create a new charge
+     *
+     * @param array $params
+     *
+     * @return object
+     * @throws ShopifyApiException
+     */
+    public function create($params);
 
-    public function activate($id);
+    /**
+     * Receive a single Charge
+     *
+     * @param string $id
+     * @param string $fields comma-separated list of fields to include in the response
+     *
+     * @return object
+     * @throws ShopifyApiException
+     */
+    public function get($id, $fields = null);
 
-    public function create($plan);
+    /**
+     * Retrieve all charges
+     *
+     * @param array $params
+     *
+     * @return array
+     * @throws ShopifyApiException
+     */
+    public function all($params = []);
 
+    /**
+     * Activate a charge
+     *
+     * @param string $id
+     * @param array $params
+     *
+     * @return object
+     * @throws ShopifyApiException
+     */
+    public function activate($id, $params = []);
+
+    /**
+     * @param $status
+     *
+     * @return bool
+     */
     public function activeStatus($status);
 }

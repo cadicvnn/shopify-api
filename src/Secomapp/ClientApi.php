@@ -72,6 +72,14 @@ class ClientApi implements ClientApiContract
         $this->client->setClientSecret($secret);
     }
 
+    /**
+     * @param $url
+     * @param $extract
+     * @param array $params
+     *
+     * @return bool|object
+     * @throws ShopifyApiException
+     */
     public function get($url, $extract, $params = [])
     {
         $response = $this->client->get("/admin/$url", $params);
@@ -82,16 +90,32 @@ class ClientApi implements ClientApiContract
         return !is_null($response) && property_exists($response, $extract) ? $response->$extract : false;
     }
 
-    public function post($url, $extract, $params = [])
+    /**
+     * @param $url
+     * @param $extract
+     * @param array $params
+     *
+     * @return bool|object
+     * @throws ShopifyApiException
+     */
+    public function post($url, $extract = null, $params = [])
     {
         $response = $this->client->post("/admin/$url", $params);
         if (isset($response->errors)) {
             throw new ShopifyApiException(json_encode($response->errors));
         }
 
-        return !is_null($response) && property_exists($response, $extract) ? $response->$extract : false;
+        return $extract && !is_null($response) && property_exists($response, $extract) ? $response->$extract : false;
     }
 
+    /**
+     * @param $url
+     * @param $extract
+     * @param array $params
+     *
+     * @return bool|object
+     * @throws ShopifyApiException
+     */
     public function put($url, $extract, $params = [])
     {
         $response = $this->client->put("/admin/$url", $params);
@@ -102,6 +126,12 @@ class ClientApi implements ClientApiContract
         return !is_null($response) && property_exists($response, $extract) ? $response->$extract : false;
     }
 
+    /**
+     * @param $url
+     *
+     * @param array $params
+     * @throws ShopifyApiException
+     */
     public function delete($url, $params = [])
     {
         $response = $this->client->delete("/admin/$url", $params);

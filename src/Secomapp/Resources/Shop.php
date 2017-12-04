@@ -3,16 +3,20 @@
 namespace Secomapp\Resources;
 
 use Secomapp\BaseResource;
+use Secomapp\Exceptions\ShopifyApiException;
 
 class Shop extends BaseResource
 {
-    public function get()
+    /**
+     * Receive a single Shop
+     *
+     * @param string $fields
+     *
+     * @return object
+     * @throws ShopifyApiException
+     */
+    public function get($fields = null)
     {
-        return $this->client->get('shop.json', 'shop');
-    }
-
-    public function uninstallApp()
-    {
-        return $this->client->get('api_permissions/current.json', 'shop');
+        return $this->client->get('shop.json', 'shop', $this->prepareParams($fields));
     }
 }

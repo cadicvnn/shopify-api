@@ -3,17 +3,17 @@
 namespace Secomapp\Resources;
 
 use Secomapp\BaseResource;
+use Secomapp\Exceptions\ShopifyApiException;
 
 class CustomCollection extends BaseResource
 {
     /**
-     * Retrieves a list of all objects.
-     * Listing theme assets only returns metadata about each asset
-     * you need to request assets individually in order to get their contents.
+     * Receive a list of all CustomCollections
      *
      * @param array $params
      *
-     * @return mixed
+     * @return array
+     * @throws ShopifyApiException
      */
     public function all($params = [])
     {
@@ -21,27 +21,72 @@ class CustomCollection extends BaseResource
     }
 
     /**
-     * Retrieves the Custom Collection with the given id.
+     * Receive a count of all CustomCollections
      *
-     * @param string      $customCollectionId The id of the custom collection to retrieve.
-     * @param string|null $fields             A comma-separated list of fields to return.
+     * @param array $params
+     *
+     * @return integer
+     * @throws ShopifyApiException
      */
-    public function get($customCollectionId, $fields = null)
+    public function count($params = [])
     {
-        $params = $this->prepareFields($fields);
-
-        return $this->client->get("custom_collections/{$customCollectionId}.json", 'custom_collection', $params);
+        return $this->client->get('custom_collections/count.json', 'count', $params);
     }
 
     /**
-     * Creates a new Custom Collection.
+     * Receive a single CustomCollection
+     *
+     * @param string $id The id of the custom collection to retrieve.
+     * @param string $fields comma-separated list of fields to include in the response
+     *
+     * @return object
+     * @throws ShopifyApiException
+     */
+    public function get($id, $fields = null)
+    {
+        return $this->client->get("custom_collections/{$id}.json", 'custom_collection', $this->prepareParams($fields));
+    }
+
+    /**
+     * Create a new CustomCollection
      *
      * @param array $params
+     *
+     * @return object
+     * @throws ShopifyApiException
      */
     public function create($params)
     {
-        $params = ['custom_collection' => $params];
+        return $this->client->post('custom_collections.json', 'custom_collection', [
+            'custom_collection' => $params
+        ]);
+    }
 
-        return $this->client->post('custom_collections.json', 'custom_collection', $params);
+    /**
+     * Modify an existing CustomCollection
+     *
+     * @param string $id
+     * @param array $params
+     *
+     * @return object
+     * @throws ShopifyApiException
+     */
+    public function createOrUpdate($id, $params)
+    {
+        return $this->client->put("custom_collections/{$id}.json", 'custom_collection', [
+            'custom_collection' => $params
+        ]);
+    }
+
+    /**
+     * Remove a CustomCollection from the database
+     *
+     * @param string $id
+     *
+     * @throws ShopifyApiException
+     */
+    public function delete($id)
+    {
+        $this->client->delete("custom_collections/{$id}.json");
     }
 }

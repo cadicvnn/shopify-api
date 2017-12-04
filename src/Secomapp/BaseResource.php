@@ -22,17 +22,22 @@ abstract class BaseResource
     }
 
     /**
-     * @param null $fields A comma-separated list of fields to return.
+     * Prepare query string from an array of query parameters.
+     * All entries of input equal to false (see converting to boolean) will be removed.
      *
-     * @return array
+     * @param mixed $varName
+     * @param mixed $_ [optional]
+     *
+     * @return string query string
      */
-    protected function prepareFields($fields = null)
+    protected function prepareParams($varName, $_ = null)
     {
-        $params = [];
-        if ($fields) {
-            $params['fields'] = $fields;
+        if (is_array($varName)) {
+            return array_filter($varName);
+        } else {
+            return array_filter(compact(func_get_args()));
         }
 
-        return $params;
+
     }
 }

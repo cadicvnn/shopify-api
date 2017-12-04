@@ -3,48 +3,97 @@
 namespace Secomapp\Resources;
 
 use Secomapp\BaseResource;
+use Secomapp\Exceptions\ShopifyApiException;
 
 class Webhook extends BaseResource
 {
-    public function create($topic, $url)
+    /**
+     * Receive a list of all Webhooks
+     *
+     * @param array $params
+     *
+     * @return array
+     * @throws ShopifyApiException
+     */
+    public function all($params = [])
+    {
+        return $this->client->get('webhooks.json', 'webhooks', $params);
+    }
+
+    /**
+     * Receive a count of all Webhooks
+     *
+     * @param array $params
+     *
+     * @return integer
+     * @throws ShopifyApiException
+     */
+    public function count($params = [])
+    {
+        return $this->client->get('webhooks/count.json', 'count', $params);
+    }
+
+    /**
+     * Receive a single Webhook
+     *
+     * @param string $id
+     * @param string $fields
+     *
+     * @return object
+     * @throws ShopifyApiException
+     */
+    public function get($id, $fields = null)
+    {
+        return $this->client->get("webhooks/{$id}.json", 'webhook', $this->prepareParams($fields));
+    }
+
+    /**
+     * Create a new Webhook
+     *
+     * @param string $topic
+     * @param string $url
+     * @param string $format
+     *
+     * @return object
+     * @throws ShopifyApiException
+     */
+    public function create($topic, $url, $format = 'json')
     {
         return $this->client->post('webhooks.json', 'webhook', [
             'webhook' => [
                 'topic'   => $topic,
                 'address' => $url,
-                'format'  => 'json',
+                'format'  => $format,
             ],
         ]);
     }
 
+    /**
+     * Modify an existing Webhook
+     *
+     * @param string $id
+     * @param string $url
+     *
+     * @return object
+     * @throws ShopifyApiException
+     */
     public function update($id, $url)
     {
-        $params = ['webhook' => [
+        return $this->client->put("webhooks/{$id}.json", 'webhook', ['webhook' => [
             'id'      => $id,
             'address' => $url,
-        ]];
-
-        return $this->client->put("webhooks/{$id}.json", 'webhook', $params);
+        ]]);
     }
 
     /**
-     * Gets a list of up to 250 of the shop's webhooks.
+     * Remove a Webhook from the database
      *
-     * @param string $address An optional filter for the address property. When used, the method will only return webhooks with the given address.
-     * @param string $topic   An optional filter for the topic property. When used, the method will only return webhooks with the given topic. A full list of topics can be found at https://help.shopify.com/api/reference/webhook.
+     * @param $id
      *
-     * @return array a list of webhooks
+     * @throws ShopifyApiException
      */
-    public function all($address = null, $topic = null)
+    public function delete($id)
     {
-        $params = [];
-        if ($address) {
-            $params['address'] = $address;
-        }
-        if ($topic) {
-            $params['topic'] = $topic;
-        }
-
-        return $this->client->get('webhooks.json', 'webhooks', $params);
+        $this->client->delete("webhooks/{$id}.json");
     }
 }
