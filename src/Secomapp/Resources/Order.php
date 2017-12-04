@@ -107,7 +107,7 @@ class Order extends BaseResource
      * Modify an existing Order.
      *
      * @param string $id
-     * @param array $params
+     * @param array  $params
      *
      * @throws ShopifyApiException
      *
