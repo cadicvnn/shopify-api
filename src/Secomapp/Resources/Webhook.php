@@ -2,6 +2,7 @@
 
 namespace Secomapp\Resources;
 
+use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
 
@@ -39,7 +40,7 @@ class Webhook extends BaseResource
      * @param string $id
      * @param string $fields
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function get($id, $fields = null)
@@ -54,7 +55,7 @@ class Webhook extends BaseResource
      * @param string $url
      * @param string $format
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function create($topic, $url, $format = 'json')
@@ -74,7 +75,7 @@ class Webhook extends BaseResource
      * @param string $id
      * @param string $url
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function update($id, $url)
@@ -88,7 +89,7 @@ class Webhook extends BaseResource
     /**
      * Remove a Webhook from the database
      *
-     * @param $id
+     * @param string $id
      *
      * @throws ShopifyApiException
      */

@@ -2,6 +2,7 @@
 
 namespace Secomapp\Resources;
 
+use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
 
@@ -39,7 +40,7 @@ class SmartCollection extends BaseResource
      * @param string $id
      * @param string $fields comma-separated list of fields to include in the response
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function get($id, $fields = null)
@@ -52,7 +53,7 @@ class SmartCollection extends BaseResource
      *
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function create($params)
@@ -68,7 +69,7 @@ class SmartCollection extends BaseResource
      * @param string $id
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function update($id, $params)
@@ -111,7 +112,7 @@ class SmartCollection extends BaseResource
     /**
      * Remove a SmartCollection from the database
      *
-     * @param $id
+     * @param string $id
      *
      * @throws ShopifyApiException
      */

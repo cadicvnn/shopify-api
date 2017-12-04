@@ -2,6 +2,7 @@
 
 namespace Secomapp\Resources;
 
+use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Contracts\ChargeContract;
 use Secomapp\Exceptions\ShopifyApiException;
@@ -13,7 +14,7 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      *
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function create($params)
@@ -29,7 +30,7 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      * @param string $id
      * @param string $fields comma-separated list of fields to include in the response
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function get($id, $fields = null)
@@ -56,7 +57,7 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      * @param string $id
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function activate($id, $params = [])
@@ -66,6 +67,11 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
         ]);
     }
 
+    /**
+     * @param string $status
+     *
+     * @return bool
+     */
     public function activeStatus($status)
     {
         return in_array($status, ['accepted', 'active']);

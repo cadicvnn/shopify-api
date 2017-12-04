@@ -2,6 +2,7 @@
 
 namespace Secomapp\Resources;
 
+use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
 
@@ -10,7 +11,7 @@ class Customer extends BaseResource
     /**
      * Receive a list of all Customers
      *
-     * @param $params
+     * @param array $params
      *
      * @return array
      * @throws ShopifyApiException
@@ -23,8 +24,8 @@ class Customer extends BaseResource
     /**
      * Search for customers matching supplied query
      *
-     * @param $query
-     * @param $params
+     * @param string $query
+     * @param array $params
      *
      * @return array
      * @throws ShopifyApiException
@@ -37,10 +38,10 @@ class Customer extends BaseResource
     /**
      * Receive a single Customer
      *
-     * @param $id
+     * @param string $id
      * @param string $fields
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function get($id, $fields = null)
@@ -53,7 +54,7 @@ class Customer extends BaseResource
      *
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function create($params)
@@ -69,7 +70,7 @@ class Customer extends BaseResource
      * @param string $id
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function update($id, $params)
@@ -98,7 +99,7 @@ class Customer extends BaseResource
      * @param string $id
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function sendInvite($id, $params = [])
@@ -109,7 +110,7 @@ class Customer extends BaseResource
     /**
      * Remove a Customer from the database
      *
-     * @param $id
+     * @param string $id
      *
      * @throws ShopifyApiException
      */
@@ -132,7 +133,7 @@ class Customer extends BaseResource
     /**
      * Find orders belonging to this customer
      *
-     * @param $id
+     * @param string $id
      *
      * @return array
      * @throws ShopifyApiException

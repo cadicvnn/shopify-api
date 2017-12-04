@@ -2,6 +2,7 @@
 
 namespace Secomapp\Resources;
 
+use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
 
@@ -28,7 +29,7 @@ class Asset extends BaseResource
      * @param string $key The key value of the asset, e.g. 'templates/index.liquid' or 'assets/bg-body.gif'.
      * @param string $fields A comma-separated list of fields to return.
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function get($themeId, $key, $fields = null)
@@ -42,7 +43,7 @@ class Asset extends BaseResource
      * @param string $themeId The id of the theme that the asset belongs to.
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function createOrUpdate($themeId, $params)

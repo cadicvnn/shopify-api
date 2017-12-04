@@ -2,6 +2,7 @@
 
 namespace Secomapp\Resources;
 
+use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
 
@@ -36,10 +37,10 @@ class CustomCollection extends BaseResource
     /**
      * Receive a single CustomCollection
      *
-     * @param string $id The id of the custom collection to retrieve.
+     * @param string $id
      * @param string $fields comma-separated list of fields to include in the response
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function get($id, $fields = null)
@@ -52,7 +53,7 @@ class CustomCollection extends BaseResource
      *
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function create($params)
@@ -68,7 +69,7 @@ class CustomCollection extends BaseResource
      * @param string $id
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function createOrUpdate($id, $params)

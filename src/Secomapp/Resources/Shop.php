@@ -2,6 +2,7 @@
 
 namespace Secomapp\Resources;
 
+use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
 
@@ -12,7 +13,7 @@ class Shop extends BaseResource
      *
      * @param string $fields
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function get($fields = null)

@@ -2,6 +2,7 @@
 
 namespace Secomapp\Resources;
 
+use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
 
@@ -12,7 +13,7 @@ class Metafield extends BaseResource
      *
      * @param array $params
      *
-     * @return mixed
+     * @return array
      * @throws ShopifyApiException
      */
     public function all($params = [])
@@ -64,7 +65,7 @@ class Metafield extends BaseResource
      *
      * @param string $id
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function get($id)
@@ -79,7 +80,7 @@ class Metafield extends BaseResource
      * @param string $resourceId The Id of the resource the metafield will be associated with.
      * @param string $id
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function getForResource($resource, $resourceId, $id)
@@ -92,7 +93,7 @@ class Metafield extends BaseResource
      *
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function create($params)
@@ -109,7 +110,7 @@ class Metafield extends BaseResource
      * @param string $resourceId The Id of the resource the metafield will be associated with.
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function createForResource($resource, $resourceId, $params)
@@ -125,7 +126,7 @@ class Metafield extends BaseResource
      * @param string $id
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function update($id, $params)
@@ -143,7 +144,7 @@ class Metafield extends BaseResource
      * @param string $id
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function updateForResource($resource, $resourceId, $id, $params)
@@ -156,7 +157,8 @@ class Metafield extends BaseResource
     /**
      * Delete a store metafield
      *
-     * @param @param string $id
+     * @param string $id
+     *
      * @throws ShopifyApiException
      */
     public function delete($id)

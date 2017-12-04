@@ -2,6 +2,7 @@
 
 namespace Secomapp\Resources;
 
+use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
 
@@ -23,10 +24,10 @@ class Theme extends BaseResource
     /**
      * Receive a single Theme
      *
-     * @param $id
+     * @param string $id
      * @param string $fields
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function get($id, $fields = null)
@@ -39,7 +40,7 @@ class Theme extends BaseResource
      *
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function create($params)
@@ -55,7 +56,7 @@ class Theme extends BaseResource
      * @param string $id
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function update($id, $params)
@@ -68,7 +69,7 @@ class Theme extends BaseResource
     /**
      * Remove a Theme from the database
      *
-     * @param $id
+     * @param string $id
      *
      * @throws ShopifyApiException
      */

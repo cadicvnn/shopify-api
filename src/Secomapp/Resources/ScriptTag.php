@@ -2,6 +2,7 @@
 
 namespace Secomapp\Resources;
 
+use stdClass;
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
 
@@ -39,7 +40,7 @@ class ScriptTag extends BaseResource
      * @param string $id
      * @param string $fields
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function get($id, $fields = null)
@@ -52,7 +53,7 @@ class ScriptTag extends BaseResource
      *
      * @param string $url
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function create($url)
@@ -69,7 +70,7 @@ class ScriptTag extends BaseResource
      * @param string $id
      * @param string $url
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function update($id, $url)
@@ -83,7 +84,7 @@ class ScriptTag extends BaseResource
     /**
      * Remove a ScriptTag from the database
      *
-     * @param $id
+     * @param string $id
      *
      * @throws ShopifyApiException
      */

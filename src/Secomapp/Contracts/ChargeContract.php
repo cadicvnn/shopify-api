@@ -2,6 +2,7 @@
 
 namespace Secomapp\Contracts;
 
+use stdClass;
 use Secomapp\Exceptions\ShopifyApiException;
 
 interface ChargeContract
@@ -11,7 +12,7 @@ interface ChargeContract
      *
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function create($params);
@@ -22,7 +23,7 @@ interface ChargeContract
      * @param string $id
      * @param string $fields comma-separated list of fields to include in the response
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function get($id, $fields = null);
@@ -43,7 +44,7 @@ interface ChargeContract
      * @param string $id
      * @param array $params
      *
-     * @return object
+     * @return stdClass
      * @throws ShopifyApiException
      */
     public function activate($id, $params = []);

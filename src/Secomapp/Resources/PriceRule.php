@@ -3,6 +3,8 @@
 namespace Secomapp\Resources;
 
 use Secomapp\BaseResource;
+use Secomapp\Exceptions\ShopifyApiException;
+use stdClass;
 
 /**
  * Class PriceRule handles all requests for price rules in shopify API
@@ -15,54 +17,65 @@ class PriceRule extends BaseResource
 {
 
     /**
-     * Gets a list of up to 250 of the shop's price rules.
+     * Create a new PriceRule
+     *
+     * @param array $params
+     *
+     * @return stdClass
+     * @throws ShopifyApiException
      */
-    public function all() {
-        return $this->client->get('price_rules.json', 'price_rules');
+    public function create($params) {
+        return $this->client->post('price_rules.json', 'price_rule', [
+            'price_rule' => $params
+        ]);
     }
 
     /**
-     * Retrieves the object with the given id.
-     * @param $id
-     * @param null $fields
-     * @return \stdClass
+     * Modify an existing PriceRule
+     *
+     * @param string $id
+     * @param array $params
+     *
+     * @return stdClass
+     * @throws ShopifyApiException
+     */
+    public function update($id, $params) {
+        return $this->client->put("price_rules/{$id}.json", 'price_rule', [
+            'price_rule' => $params
+        ]);
+    }
+
+    /**
+     * Retrieve a list of price rules
+     *
+     * @param array $params
+     *
+     * @return array
+     * @throws ShopifyApiException
+     */
+    public function all($params = []) {
+        return $this->client->get('price_rules.json', 'price_rules', $params);
+    }
+
+    /**
+     * Receive a single PriceRule
+     *
+     * @param string $id
+     * @param string $fields
+     *
+     * @return stdClass
+     * @throws ShopifyApiException
      */
     public function get($id, $fields = null) {
-        $params = $this->prepareFields($fields);
-        return $this->client->get("price_rules/{$id}.json", 'price_rule', $params);
+        return $this->client->get("price_rules/{$id}.json", 'price_rule', $this->prepareParams($fields));
     }
 
     /**
-     * Creates a new price rule.
+     * Remove a PriceRule from the database
      *
-     * @param $rule
-     * @return \stdClass
-     */
-    public function create($rule) {
-        $params = [
-            'price_rule' => $rule
-        ];
-        return $this->client->post('price_rules.json', 'price_rule', $params);
-    }
-
-    /**
-     * Updates the given object.
+     * @param string $id
      *
-     * @param $id
-     * @param $rule
-     * @return \stdClass
-     */
-    public function update($id, $rule) {
-        $params = [
-            'price_rule' => $rule
-        ];
-        return $this->client->put("price_rules/{$id}.json", 'price_rule', $params);
-    }
-
-    /**
-     * Deletes the object with the given Id.
-     *
-     * @param $id
+     * @throws ShopifyApiException
      */
     public function delete($id) {
         $this->client->delete("price_rules/{$id}.json");

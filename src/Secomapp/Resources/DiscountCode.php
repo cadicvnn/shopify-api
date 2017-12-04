@@ -2,7 +2,9 @@
 
 namespace Secomapp\Resources;
 
+use stdClass;
 use Secomapp\BaseResource;
+use Secomapp\Exceptions\ShopifyApiException;
 
 /**
  * Class Discount is a class for manipulating Shopify discount code.
@@ -14,51 +16,46 @@ class DiscountCode extends BaseResource
 {
 
     /**
-     * Create a discount code
+     * Create a new DiscountCode
      *
-     * @param $priceRuleId
-     * @param $discountCode
-     * @return \stdClass
+     * @param string $priceRuleId
+     * @param string $discountCode
+     *
+     * @return stdClass
+     * @throws ShopifyApiException
      */
     public function create($priceRuleId, $discountCode)
     {
-        $params = [
-            'discount_code' => $discountCode
-        ];
-        return $this->client->post("price_rules/{$priceRuleId}/discount_codes.json", 'discount_code', $params);
+        return $this->client->post("price_rules/{$priceRuleId}/discount_codes.json", 'discount_code', [
+            'code' => $discountCode
+        ]);
     }
 
     /**
-     * Change DiscountCode attributes
+     * Modify an existing DiscountCode
      *
-     * @param $priceRuleId
-     * @param $discountCodeId
-     * @param $discountCode
-     * @return \stdClass
+     * @param string $priceRuleId
+     * @param string $discountCodeId
+     * @param string $discountCode
+     *
+     * @return stdClass
+     * @throws ShopifyApiException
      */
     public function update($priceRuleId, $discountCodeId, $discountCode)
     {
-        $params = [
+        return $this->client->put("price_rules/{$priceRuleId}/discount_codes/{$discountCodeId}.json", 'discount_code', [
             'discount_code' => $discountCode
-        ];
-        return $this->client->put("price_rules/{$priceRuleId}/discount_codes/{$discountCodeId}.json", 'discount_code', $params);
+        ]);
     }
 
     /**
-     * Retrieve a list of discount codes
-     * @param $priceRuleId
-     * @return \stdClass
-     */
-    public function all($priceRuleId)
-    {
-        return $this->client->get("price_rules/{$priceRuleId}/discount_codes.json", 'discount_codes');
-    }
-
-    /**
-     * Retrieve a single discount code
-     * @param $priceRuleId
-     * @param $discountCodeId
-     * @return \stdClass
+     * Receive a single DiscountCode
+     *
+     * @param string $priceRuleId
+     * @param string $discountCodeId
+     *
+     * @return stdClass
+     * @throws ShopifyApiException
      */
     public function get($priceRuleId, $discountCodeId)
     {
@@ -66,10 +63,25 @@ class DiscountCode extends BaseResource
     }
 
     /**
-     * Permanently delete a discount code
+     * Retrieve a list of discount codes
      *
-     * @param $priceRuleId
-     * @param $discountCodeId
+     * @param string $priceRuleId
+     *
+     * @return stdClass
+     * @throws ShopifyApiException
+     */
+    public function all($priceRuleId)
+    {
+        return $this->client->get("price_rules/{$priceRuleId}/discount_codes.json", 'discount_codes');
+    }
+
+    /**
+     * Remove a DiscountCode from the database
+     *
+     * @param string $priceRuleId
+     * @param string $discountCodeId
+     *
+     * @throws ShopifyApiException
      */
     public function delete($priceRuleId, $discountCodeId)
     {
