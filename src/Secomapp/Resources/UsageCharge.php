@@ -14,7 +14,7 @@ class UsageCharge extends BaseResource
      * Create a usage charge.
      *
      * @param string $recurringChargeId
-     * @param int $price
+     * @param int    $price
      * @param string $description
      *
      * @throws ShopifyApiException
@@ -36,7 +36,7 @@ class UsageCharge extends BaseResource
      *
      * @param string $recurringChargeId
      * @param string $id
-     * @param string $fields comma-separated list of fields to include in the response
+     * @param string $fields            comma-separated list of fields to include in the response
      *
      * @throws ShopifyApiException
      *
@@ -51,7 +51,7 @@ class UsageCharge extends BaseResource
      * Retrieve all usage charges.
      *
      * @param string $recurringChargeId
-     * @param string $fields comma-separated list of fields to include in the response
+     * @param string $fields            comma-separated list of fields to include in the response
      *
      * @throws ShopifyApiException
      *

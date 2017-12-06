@@ -60,6 +60,7 @@ class Theme extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function update($id, $params)
