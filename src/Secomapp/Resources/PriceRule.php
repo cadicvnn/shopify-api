@@ -21,6 +21,7 @@ class PriceRule extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function create($params)
@@ -37,6 +38,7 @@ class PriceRule extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function update($id, $params)
@@ -52,6 +54,7 @@ class PriceRule extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return array
      */
     public function all($params = [])
@@ -66,6 +69,7 @@ class PriceRule extends BaseResource
      * @param string $fields
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function get($id, $fields = null)

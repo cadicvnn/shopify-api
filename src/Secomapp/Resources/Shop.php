@@ -14,6 +14,7 @@ class Shop extends BaseResource
      * @param string $fields
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function get($fields = null)

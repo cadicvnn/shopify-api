@@ -15,6 +15,7 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function create($params)
@@ -31,6 +32,7 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      * @param string $fields comma-separated list of fields to include in the response
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function get($id, $fields = null)
@@ -44,6 +46,7 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return array
      */
     public function all($params = [])
@@ -58,6 +61,7 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      * @param array  $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function activate($id, $params = [])

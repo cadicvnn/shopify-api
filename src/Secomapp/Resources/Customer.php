@@ -14,6 +14,7 @@ class Customer extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return array
      */
     public function all($params = [])
@@ -28,6 +29,7 @@ class Customer extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
+     *
      * @return array
      */
     public function search($query, $params = [])
@@ -42,6 +44,7 @@ class Customer extends BaseResource
      * @param string $fields
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function get($id, $fields = null)
@@ -55,6 +58,7 @@ class Customer extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function create($params)
@@ -71,6 +75,7 @@ class Customer extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function update($id, $params)
@@ -86,6 +91,7 @@ class Customer extends BaseResource
      * @param string $id
      *
      * @throws ShopifyApiException
+     *
      * @return string
      */
     public function createAccountActivationUrl($id)
@@ -100,6 +106,7 @@ class Customer extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function sendInvite($id, $params = [])
@@ -123,6 +130,7 @@ class Customer extends BaseResource
      * Receive a count of all Customers.
      *
      * @throws ShopifyApiException
+     *
      * @return int
      */
     public function count()
@@ -136,6 +144,7 @@ class Customer extends BaseResource
      * @param string $id
      *
      * @throws ShopifyApiException
+     *
      * @return array
      */
     public function orders($id)

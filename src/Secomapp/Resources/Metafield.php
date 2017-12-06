@@ -14,6 +14,7 @@ class Metafield extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return array
      */
     public function all($params = [])
@@ -28,6 +29,7 @@ class Metafield extends BaseResource
      * @param string $resourceId The Id of the resource the metafield will be associated with.
      *
      * @throws ShopifyApiException
+     *
      * @return array
      */
     public function allForResource($resource, $resourceId)
@@ -39,6 +41,7 @@ class Metafield extends BaseResource
      * Get a count of metafields that belong to a store.
      *
      * @throws ShopifyApiException
+     *
      * @return int
      */
     public function count()
@@ -53,6 +56,7 @@ class Metafield extends BaseResource
      * @param string $resourceId The Id of the resource the metafield will be associated with.
      *
      * @throws ShopifyApiException
+     *
      * @return int
      */
     public function countForResource($resource, $resourceId)
@@ -66,6 +70,7 @@ class Metafield extends BaseResource
      * @param string $id
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function get($id)
@@ -81,6 +86,7 @@ class Metafield extends BaseResource
      * @param string $id
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function getForResource($resource, $resourceId, $id)
@@ -94,6 +100,7 @@ class Metafield extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function create($params)
@@ -111,6 +118,7 @@ class Metafield extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function createForResource($resource, $resourceId, $params)
@@ -127,6 +135,7 @@ class Metafield extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function update($id, $params)
@@ -145,6 +154,7 @@ class Metafield extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function updateForResource($resource, $resourceId, $id, $params)

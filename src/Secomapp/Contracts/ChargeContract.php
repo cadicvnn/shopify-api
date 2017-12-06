@@ -13,6 +13,7 @@ interface ChargeContract
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function create($params);
@@ -24,6 +25,7 @@ interface ChargeContract
      * @param string $fields comma-separated list of fields to include in the response
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function get($id, $fields = null);
@@ -34,6 +36,7 @@ interface ChargeContract
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return array
      */
     public function all($params = []);
@@ -45,6 +48,7 @@ interface ChargeContract
      * @param array  $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function activate($id, $params = []);

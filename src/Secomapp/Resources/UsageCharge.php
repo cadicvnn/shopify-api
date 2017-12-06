@@ -18,6 +18,7 @@ class UsageCharge extends BaseResource
      * @param string $description
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function create($recurringChargeId, $price, $description)
@@ -38,6 +39,7 @@ class UsageCharge extends BaseResource
      * @param string $fields comma-separated list of fields to include in the response
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function get($recurringChargeId, $id, $fields = null)
@@ -52,6 +54,7 @@ class UsageCharge extends BaseResource
      * @param string $fields comma-separated list of fields to include in the response
      *
      * @throws ShopifyApiException
+     *
      * @return array
      */
     public function all($recurringChargeId, $fields = null)

@@ -14,6 +14,7 @@ class Collect extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function create($params)
@@ -27,6 +28,7 @@ class Collect extends BaseResource
      * Remove a Collect from the database.
      *
      * @param string $id
+     *
      * @throws ShopifyApiException
      */
     public function delete($id)
@@ -40,6 +42,7 @@ class Collect extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return array
      */
     public function all($params = [])
@@ -53,6 +56,7 @@ class Collect extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
+     *
      * @return int
      */
     public function count($params = [])
@@ -67,6 +71,7 @@ class Collect extends BaseResource
      * @param string $fields comma-separated list of fields to include in the response
      *
      * @throws ShopifyApiException
+     *
      * @return stdClass
      */
     public function get($id, $fields = null)
