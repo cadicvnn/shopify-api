@@ -15,7 +15,6 @@ class Asset extends BaseResource
      * @param string $fields  comma-separated list of fields to include in the response
      *
      * @throws ShopifyApiException
-     *
      * @return array
      */
     public function all($themeId, $fields = null)
@@ -31,7 +30,6 @@ class Asset extends BaseResource
      * @param string $fields  A comma-separated list of fields to return.
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function get($themeId, $key, $fields = null)
@@ -46,7 +44,6 @@ class Asset extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function createOrUpdate($themeId, $params)

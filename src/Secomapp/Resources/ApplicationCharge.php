@@ -46,7 +46,6 @@ class ApplicationCharge extends BaseResource implements ChargeContract
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return array
      */
     public function all($params = [])
@@ -61,7 +60,6 @@ class ApplicationCharge extends BaseResource implements ChargeContract
      * @param array  $params
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function activate($id, $params = [])
@@ -75,7 +73,6 @@ class ApplicationCharge extends BaseResource implements ChargeContract
      * Cancel a recurring application charge.
      *
      * @param string $id
-     *
      * @throws ShopifyApiException
      */
     public function delete($id)
@@ -90,7 +87,6 @@ class ApplicationCharge extends BaseResource implements ChargeContract
      * @param int    $amount
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function customize($id, $amount)

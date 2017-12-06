@@ -22,7 +22,6 @@ class DiscountCode extends BaseResource
      * @param string $discountCode
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function create($priceRuleId, $discountCode)
@@ -40,7 +39,6 @@ class DiscountCode extends BaseResource
      * @param string $discountCode
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function update($priceRuleId, $discountCodeId, $discountCode)
@@ -57,7 +55,6 @@ class DiscountCode extends BaseResource
      * @param string $discountCodeId
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function get($priceRuleId, $discountCodeId)
@@ -71,7 +68,6 @@ class DiscountCode extends BaseResource
      * @param string $priceRuleId
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function all($priceRuleId)

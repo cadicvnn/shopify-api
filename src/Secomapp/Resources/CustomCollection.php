@@ -14,7 +14,6 @@ class CustomCollection extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return array
      */
     public function all($params = [])
@@ -28,7 +27,6 @@ class CustomCollection extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return int
      */
     public function count($params = [])
@@ -43,7 +41,6 @@ class CustomCollection extends BaseResource
      * @param string $fields comma-separated list of fields to include in the response
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function get($id, $fields = null)
@@ -57,7 +54,6 @@ class CustomCollection extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function create($params)
@@ -74,7 +70,6 @@ class CustomCollection extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function createOrUpdate($id, $params)
@@ -88,7 +83,6 @@ class CustomCollection extends BaseResource
      * Remove a CustomCollection from the database.
      *
      * @param string $id
-     *
      * @throws ShopifyApiException
      */
     public function delete($id)

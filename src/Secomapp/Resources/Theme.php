@@ -14,7 +14,6 @@ class Theme extends BaseResource
      * @param string $fields comma-separated list of fields to include in the response
      *
      * @throws ShopifyApiException
-     *
      * @return array
      */
     public function all($fields = null)
@@ -29,7 +28,6 @@ class Theme extends BaseResource
      * @param string $fields
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function get($id, $fields = null)
@@ -43,7 +41,6 @@ class Theme extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function create($params)
@@ -60,7 +57,6 @@ class Theme extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function update($id, $params)

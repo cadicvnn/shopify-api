@@ -14,7 +14,6 @@ class ScriptTag extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return array
      */
     public function all($params = [])
@@ -28,7 +27,6 @@ class ScriptTag extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return int
      */
     public function count($params = [])
@@ -43,7 +41,6 @@ class ScriptTag extends BaseResource
      * @param string $fields
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function get($id, $fields = null)
@@ -57,7 +54,6 @@ class ScriptTag extends BaseResource
      * @param string $url
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function create($url)
@@ -75,7 +71,6 @@ class ScriptTag extends BaseResource
      * @param string $url
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function update($id, $url)

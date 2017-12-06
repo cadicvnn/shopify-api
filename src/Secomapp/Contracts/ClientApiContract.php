@@ -22,7 +22,6 @@ interface ClientApiContract
      * @param array  $params
      *
      * @throws ShopifyApiException
-     *
      * @return mixed
      */
     public function get($url, $extract, $params = []);
@@ -33,7 +32,6 @@ interface ClientApiContract
      * @param array  $params
      *
      * @throws ShopifyApiException
-     *
      * @return mixed
      */
     public function post($url, $extract = null, $params = []);
@@ -44,7 +42,6 @@ interface ClientApiContract
      * @param array  $params
      *
      * @throws ShopifyApiException
-     *
      * @return mixed
      */
     public function put($url, $extract, $params = []);

@@ -14,7 +14,6 @@ class Order extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return array
      */
     public function all($params = [])
@@ -29,7 +28,6 @@ class Order extends BaseResource
      * @param string $fields
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function get($id, $fields = null)
@@ -43,7 +41,6 @@ class Order extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return int
      */
     public function count($params = [])
@@ -93,7 +90,6 @@ class Order extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function create($params)
@@ -110,7 +106,6 @@ class Order extends BaseResource
      * @param array  $params
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function update($id, $params)

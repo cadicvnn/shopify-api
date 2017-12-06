@@ -14,7 +14,6 @@ class Webhook extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return array
      */
     public function all($params = [])
@@ -28,7 +27,6 @@ class Webhook extends BaseResource
      * @param array $params
      *
      * @throws ShopifyApiException
-     *
      * @return int
      */
     public function count($params = [])
@@ -43,7 +41,6 @@ class Webhook extends BaseResource
      * @param string $fields
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function get($id, $fields = null)
@@ -59,7 +56,6 @@ class Webhook extends BaseResource
      * @param string $format
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function create($topic, $url, $format = 'json')
@@ -80,7 +76,6 @@ class Webhook extends BaseResource
      * @param string $url
      *
      * @throws ShopifyApiException
-     *
      * @return stdClass
      */
     public function update($id, $url)
