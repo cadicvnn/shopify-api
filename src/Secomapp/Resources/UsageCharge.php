@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Secomapp\Resources;
-
 
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
