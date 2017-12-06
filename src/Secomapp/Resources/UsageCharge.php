@@ -26,7 +26,7 @@ class UsageCharge extends BaseResource
         return $this->client->post("recurring_application_charges/{$recurringChargeId}/usage_charges.json", 'usage_charge', [
             'usage_charge' => [
                 'description' => $description,
-                'price' => $price
+                'price' => $price,
             ],
         ]);
     }
