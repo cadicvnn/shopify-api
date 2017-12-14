@@ -20,7 +20,7 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      */
     public function create($params)
     {
-        return $this->client->post('recurring_application_charges.json', 'recurring_application_charges', [
+        return $this->client->post('recurring_application_charges.json', 'recurring_application_charge', [
             'recurring_application_charge' => $params,
         ]);
     }
@@ -37,7 +37,7 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      */
     public function get($id, $fields = null)
     {
-        return $this->client->get("recurring_application_charges/{$id}.json", 'recurring_application_charges', $this->prepareParams($fields));
+        return $this->client->get("recurring_application_charges/{$id}.json", 'recurring_application_charge', $this->prepareParams($fields));
     }
 
     /**
