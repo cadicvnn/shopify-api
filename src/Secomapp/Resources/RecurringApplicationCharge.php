@@ -9,8 +9,9 @@ use stdClass;
 
 class RecurringApplicationCharge extends BaseResource implements ChargeContract
 {
+
     /**
-     * Create a recurring application charge.
+     * Create a new recurring application charge.
      *
      * @param array $params
      *
@@ -20,7 +21,7 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      */
     public function create($params)
     {
-        return $this->client->post('recurring_application_charges.json', 'recurring_application_charge', [
+        return $this->client->post('recurring_application_charges.json', 'recurring_application_charges', [
             'recurring_application_charge' => $params,
         ]);
     }
@@ -37,11 +38,11 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      */
     public function get($id, $fields = null)
     {
-        return $this->client->get("recurring_application_charges/{$id}.json", 'recurring_application_charge', $this->prepareParams($fields));
+        return $this->client->get("recurring_application_charges/{$id}.json", 'recurring_application_charges', $this->prepareParams($fields));
     }
 
     /**
-     * Retrieve all one-time application charges.
+     * Retrieve all recurring application charges.
      *
      * @param array $params
      *
@@ -51,11 +52,11 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
      */
     public function all($params = [])
     {
-        return $this->client->get('recurring_application_charges.json', 'recurring_application_charge', $params);
+        return $this->client->get('recurring_application_charges.json', 'recurring_application_charges', $params);
     }
 
     /**
-     * Retrieve all recurring application charges.
+     * Activate a recurring application charge.
      *
      * @param string $id
      * @param array  $params
@@ -69,6 +70,33 @@ class RecurringApplicationCharge extends BaseResource implements ChargeContract
         return $this->client->post("recurring_application_charges/{$id}/activate.json", 'recurring_application_charge', [
             'recurring_application_charge' => ($params ?: ['id' => $id]),
         ]);
+    }
+
+    /**
+     * Cancel a recurring application charge.
+     *
+     * @param string $id
+     *
+     * @throws ShopifyApiException
+     */
+    public function delete($id)
+    {
+        $this->client->delete("recurring_application_charges/{$id}.json");
+    }
+
+    /**
+     * Customize a recurring application charge.
+     *
+     * @param string $id
+     * @param int    $amount
+     *
+     * @throws ShopifyApiException
+     *
+     * @return stdClass
+     */
+    public function customize($id, $amount)
+    {
+        return $this->client->put("recurring_application_charges/{$id}/customize.json?recurring_application_charge[capped_amount]={$amount}", 'recurring_application_charge');
     }
 
     /**
