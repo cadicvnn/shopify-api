@@ -9,7 +9,6 @@ use stdClass;
 
 class RecurringApplicationCharge extends BaseResource implements ChargeContract
 {
-
     /**
      * Create a new recurring application charge.
      *
