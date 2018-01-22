@@ -35,7 +35,7 @@ class CustomerSavedSearch extends BaseResource
      */
     public function all($params = [])
     {
-        return $this->client->get('customer_saved_searches', 'customer_saved_searches', $params);
+        return $this->client->get('customer_saved_searches.json', 'customer_saved_searches', $params);
     }
 
     /**
