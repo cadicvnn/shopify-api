@@ -28,7 +28,7 @@ class DiscountCode extends BaseResource
     public function create($priceRuleId, $discountCode)
     {
         return $this->client->post("price_rules/{$priceRuleId}/discount_codes.json", 'discount_code', [
-            'code' => $discountCode,
+            'discount_code' => $discountCode,
         ]);
     }
 
