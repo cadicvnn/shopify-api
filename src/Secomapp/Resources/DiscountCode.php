@@ -91,4 +91,18 @@ class DiscountCode extends BaseResource
     {
         $this->client->delete("price_rules/{$priceRuleId}/discount_codes/{$discountCodeId}.json");
     }
+
+    /**
+     * Creates a discount code creation job.
+     *
+     * @param string $priceRuleId
+     * @param array $discounts
+     * @return stdClass
+     *
+     * @throws ShopifyApiException
+     */
+    public function batch($priceRuleId, $discounts)
+    {
+        return $this->client->post("price_rules/${priceRuleId}/batch.json", 'discount_code_creation', $discounts);
+    }
 }
