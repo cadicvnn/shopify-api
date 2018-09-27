@@ -9,7 +9,7 @@ use stdClass;
 class DraftOrder extends BaseResource
 {
     /**
-     * Retrieve a list of draft order
+     * Retrieve a list of draft order.
      *
      * @param array $params
      *
@@ -23,7 +23,7 @@ class DraftOrder extends BaseResource
     }
 
     /**
-     * Receive a single draft order
+     * Receive a single draft order.
      *
      * @param string $id
      * @param string $fields
@@ -38,7 +38,7 @@ class DraftOrder extends BaseResource
     }
 
     /**
-     * Create a new draft order
+     * Create a new draft order.
      *
      * @param array $params
      *
@@ -88,7 +88,7 @@ class DraftOrder extends BaseResource
      * Send invoice for the draft order
      *
      * @param string $id
-     * @param array $params
+     * @param array  $params
      *
      * @throws ShopifyApiException
      */
@@ -100,7 +100,7 @@ class DraftOrder extends BaseResource
     }
 
     /**
-     * Remove a Order from the database.
+     * Remove an Order from the database.
      *
      * @param string $id
      *
@@ -112,7 +112,7 @@ class DraftOrder extends BaseResource
     }
 
     /**
-     * Complete an draft order
+     * Complete a draft order.
      *
      * @param string $id
      *
@@ -120,7 +120,6 @@ class DraftOrder extends BaseResource
      */
     public function complete($id)
     {
-        $this->client->put("draft_orders/{$id}/complete.json");
+        $this->client->put("draft_orders/{$id}/complete.json", 'draft_order');
     }
-
 }

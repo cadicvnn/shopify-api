@@ -3,6 +3,7 @@
 namespace Secomapp\Resources;
 
 use Secomapp\BaseResource;
+use Secomapp\Exceptions\ShopifyApiException;
 
 /**
  * Class CustomerSavedSearch works with Customer saved search API in shopify
@@ -15,11 +16,13 @@ class CustomerSavedSearch extends BaseResource
 {
 
     /**
-     * Get a count of all customer saved searches
+     * Get a count of all customer saved searches.
      *
      * @param array $params
+     *
+     * @throws ShopifyApiException
+     *
      * @return array
-     * @throws \Secomapp\Exceptions\ShopifyApiException
      */
     public function count($params = [])
     {
@@ -27,11 +30,13 @@ class CustomerSavedSearch extends BaseResource
     }
 
     /**
-     * Get a list of all customer saved searches
+     * Get a list of all customer saved searches/
      *
      * @param array $params
+     *
+     * @throws ShopifyApiException
+     *
      * @return array
-     * @throws \Secomapp\Exceptions\ShopifyApiException
      */
     public function all($params = [])
     {
@@ -41,10 +46,12 @@ class CustomerSavedSearch extends BaseResource
     /**
      * Get a single customer saved search
      *
-     * @param int $id
-     * @param null|string $fields
+     * @param int    $id
+     * @param string $fields
+     *
+     * @throws ShopifyApiException
+     *
      * @return array
-     * @throws \Secomapp\Exceptions\ShopifyApiException
      */
     public function get($id, $fields = null)
     {

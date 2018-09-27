@@ -19,7 +19,7 @@ class DiscountCode extends BaseResource
      * Create a new DiscountCode.
      *
      * @param string $priceRuleId
-     * @param array $discountCode
+     * @param array  $discountCode
      *
      * @throws ShopifyApiException
      *
@@ -29,7 +29,7 @@ class DiscountCode extends BaseResource
     {
         return $this->client->post("price_rules/{$priceRuleId}/discount_codes.json", 'discount_code', [
             'discount_code' => [
-                'code' => $discountCode
+                'code' => $discountCode,
             ],
         ]);
     }
@@ -39,7 +39,7 @@ class DiscountCode extends BaseResource
      *
      * @param string $priceRuleId
      * @param string $discountCodeId
-     * @param array $discountCode
+     * @param array  $discountCode
      *
      * @throws ShopifyApiException
      *
@@ -99,9 +99,10 @@ class DiscountCode extends BaseResource
      *
      * @param string $priceRuleId
      * @param array $discounts
-     * @return stdClass
      *
      * @throws ShopifyApiException
+     *
+     * @return stdClass
      */
     public function batch($priceRuleId, $discounts)
     {

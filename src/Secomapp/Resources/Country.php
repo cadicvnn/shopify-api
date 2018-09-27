@@ -3,6 +3,7 @@
 namespace Secomapp\Resources;
 
 use Secomapp\BaseResource;
+use Secomapp\Exceptions\ShopifyApiException;
 
 /**
  * Class Country works with country API in shopify
@@ -15,11 +16,13 @@ class Country extends BaseResource
 {
 
     /**
-     * Get a list of all countries
+     * Get a list of all countries.
      *
      * @param array $params
-     * @return array
+     *
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function all($params = [])
     {
@@ -27,10 +30,11 @@ class Country extends BaseResource
     }
 
     /**
-     * Get a count of all countries
+     * Get a count of all countries.
+     *
+     * @throws ShopifyApiException
      *
      * @return int
-     * @throws ShopifyApiException
      */
     public function count()
     {
@@ -38,12 +42,14 @@ class Country extends BaseResource
     }
 
     /**
-     * Show country information
+     * Show country information.
      *
-     * @param int $id
-     * @param null $fields
-     * @return array
+     * @param int    $id
+     * @param string $fields
+     *
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function get($id, $fields = null)
     {
@@ -51,39 +57,44 @@ class Country extends BaseResource
     }
 
     /**
-     * Create new country with given information
+     * Create new country with given information.
      *
      * @param array $params
-     * @return array
+     *
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function create($params)
     {
         return $this->client->post('countries.json', 'country', [
-            'country' => $params
+            'country' => $params,
         ]);
     }
 
     /**
-     * Update a country with new information
+     * Update a country with new information.
      *
-     * @param int $id
+     * @param int   $id
      * @param array $params
-     * @return array
+     *
      * @throws ShopifyApiException
+     *
+     * @return array
      */
     public function update($id, $params)
     {
         return $this->client->put("countries/{$id}.json", 'country', [
-            'country' => $params
+            'country' => $params,
         ]);
     }
 
     /**
-     * Delete a country from shopify
+     * Delete a country from shopify.
+     *
+     * @throws ShopifyApiException
      *
      * @param int $id
-     * @throws ShopifyApiException
      */
     public function delete($id)
     {
