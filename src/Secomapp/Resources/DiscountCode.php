@@ -98,7 +98,7 @@ class DiscountCode extends BaseResource
      * Creates a discount code creation job.
      *
      * @param string $priceRuleId
-     * @param array $discounts
+     * @param array  $discounts
      *
      * @throws ShopifyApiException
      *

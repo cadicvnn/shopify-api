@@ -85,7 +85,7 @@ class DraftOrder extends BaseResource
     }
 
     /**
-     * Send invoice for the draft order
+     * Send invoice for the draft order.
      *
      * @param string $id
      * @param array  $params
@@ -94,7 +94,7 @@ class DraftOrder extends BaseResource
      */
     public function send_invoice($id, $params)
     {
-        $this->client->put("draft_orders/{$id}/send_invoice.json", 'draft_order_invoice',[
+        $this->client->put("draft_orders/{$id}/send_invoice.json", 'draft_order_invoice', [
             'draft_order_invoice' => $params,
         ]);
     }

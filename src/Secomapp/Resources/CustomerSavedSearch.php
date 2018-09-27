@@ -6,10 +6,10 @@ use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
 
 /**
- * Class CustomerSavedSearch works with Customer saved search API in shopify
+ * Class CustomerSavedSearch works with Customer saved search API in shopify.
  *
- * @package Secomapp\Resources
  * @author baorv <roanvanbao@gmail.com>
+ *
  * @version 0.0.1
  */
 class CustomerSavedSearch extends BaseResource
@@ -30,7 +30,7 @@ class CustomerSavedSearch extends BaseResource
     }
 
     /**
-     * Get a list of all customer saved searches/
+     * Get a list of all customer saved searches.
      *
      * @param array $params
      *
@@ -44,7 +44,7 @@ class CustomerSavedSearch extends BaseResource
     }
 
     /**
-     * Get a single customer saved search
+     * Get a single customer saved search.
      *
      * @param int    $id
      * @param string $fields

@@ -6,10 +6,10 @@ use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
 
 /**
- * Class Country works with country API in shopify
+ * Class Country works with country API in shopify.
  *
- * @package Secomapp\Resources
  * @author baorv <roanvanbao@gmail.com>
+ *
  * @version 0.0.1
  */
 class Country extends BaseResource
@@ -92,9 +92,9 @@ class Country extends BaseResource
     /**
      * Delete a country from shopify.
      *
-     * @throws ShopifyApiException
-     *
      * @param int $id
+     *
+     * @throws ShopifyApiException
      */
     public function delete($id)
     {
