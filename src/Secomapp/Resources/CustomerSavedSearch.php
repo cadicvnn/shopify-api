@@ -14,7 +14,6 @@ use Secomapp\Exceptions\ShopifyApiException;
  */
 class CustomerSavedSearch extends BaseResource
 {
-
     /**
      * Get a count of all customer saved searches.
      *

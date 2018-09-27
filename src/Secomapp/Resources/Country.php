@@ -14,7 +14,6 @@ use Secomapp\Exceptions\ShopifyApiException;
  */
 class Country extends BaseResource
 {
-
     /**
      * Get a list of all countries.
      *
