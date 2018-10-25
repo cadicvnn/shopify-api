@@ -47,7 +47,7 @@ interface ClientApiContract
      *
      * @return mixed
      */
-    public function put($url, $extract = false, $params = []);
+    public function put($url, $extract = null, $params = []);
 
     /**
      * @param string $url

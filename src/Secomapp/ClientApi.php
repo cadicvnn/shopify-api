@@ -73,15 +73,15 @@ class ClientApi implements ClientApiContract
     }
 
     /**
-     * @param string $url
-     * @param string $extract
-     * @param array  $params
+     * @param string      $url
+     * @param string|null $extract
+     * @param array       $params
      *
      * @throws ShopifyApiException
      *
      * @return bool|object
      */
-    public function get($url, $extract = false, $params = [])
+    public function get($url, $extract = null, $params = [])
     {
         $response = $this->client->get("/admin/$url", $params);
         if (isset($response->errors)) {
@@ -119,7 +119,7 @@ class ClientApi implements ClientApiContract
      *
      * @return bool|object
      */
-    public function put($url, $extract, $params = [])
+    public function put($url, $extract = null, $params = [])
     {
         $response = $this->client->put("/admin/$url", $params);
         if (isset($response->errors)) {
