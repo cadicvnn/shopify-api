@@ -39,9 +39,9 @@ interface ClientApiContract
     public function post($url, $extract = null, $params = []);
 
     /**
-     * @param string         $url
-     * @param string|boolean $extract
-     * @param array          $params
+     * @param string      $url
+     * @param string|bool $extract
+     * @param array       $params
      *
      * @throws ShopifyApiException
      *
