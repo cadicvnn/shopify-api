@@ -39,15 +39,15 @@ interface ClientApiContract
     public function post($url, $extract = null, $params = []);
 
     /**
-     * @param string $url
-     * @param string $extract
-     * @param array  $params
+     * @param string         $url
+     * @param string|boolean $extract
+     * @param array          $params
      *
      * @throws ShopifyApiException
      *
      * @return mixed
      */
-    public function put($url, $extract, $params = []);
+    public function put($url, $extract = false, $params = []);
 
     /**
      * @param string $url
