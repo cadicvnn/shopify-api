@@ -4,7 +4,6 @@ namespace Secomapp\Resources;
 
 use Secomapp\BaseResource;
 use Secomapp\Exceptions\ShopifyApiException;
-use stdClass;
 
 class AccessScope extends BaseResource
 {
