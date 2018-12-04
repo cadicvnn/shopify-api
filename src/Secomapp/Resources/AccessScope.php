@@ -16,6 +16,6 @@ class AccessScope extends BaseResource
      */
     public function all()
     {
-        return $this->client->get('access_scopes.json', 'access_scopes');
+        return $this->client->get('oauth/access_scopes.json', 'access_scopes');
     }
 }
