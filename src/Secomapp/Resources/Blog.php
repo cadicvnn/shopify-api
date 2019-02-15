@@ -59,7 +59,7 @@ class Blog extends BaseResource
      */
     public function create($params)
     {
-        return $this->client->post("blogs.json", 'blog', [
+        return $this->client->post('blogs.json', 'blog', [
             'blog' => $params,
         ]);
     }

@@ -55,7 +55,7 @@ class Article extends BaseResource
      * Creates an article for a blog.
      *
      * @param string $blogId
-     * @param array $params
+     * @param array  $params
      *
      * @throws ShopifyApiException
      *
