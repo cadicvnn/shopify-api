@@ -2,8 +2,8 @@
 
 namespace Secomapp;
 
-use GuzzleHttp\Client as GuzzleClient;
 use Exception;
+use GuzzleHttp\Client as GuzzleClient;
 use Secomapp\Exceptions\UnknownVersionException;
 
 class ApiVersions
@@ -11,7 +11,7 @@ class ApiVersions
     // Hold the class instance.
     private static $instance = null;
 
-    private $versions = array();
+    private $versions = [];
     private $allowUnknownVersion = true;
 
     // The constructor is private
@@ -26,7 +26,7 @@ class ApiVersions
     public static function getInstance($allowUnknownVersion = true)
     {
         if (self::$instance == null) {
-            self::$instance = new ApiVersions($allowUnknownVersion);
+            self::$instance = new self($allowUnknownVersion);
         }
 
         return self::$instance;
@@ -35,7 +35,7 @@ class ApiVersions
     public function fetchKnownVersions()
     {
         $client = new GuzzleClient();
-        $response = $client->get("https://app.shopify.com/services/apis.json");
+        $response = $client->get('https://app.shopify.com/services/apis.json');
 
         $object = json_decode($response->getBody()->getContents());
         foreach ($object->apis as $api) {
@@ -50,13 +50,14 @@ class ApiVersions
 
     /**
      * @param ApiVersion|string $versionOrHandle
+     *
      * @return ApiVersion
      * @throws Exception
      */
     public function findVersion($versionOrHandle)
     {
         if (!$versionOrHandle) {
-            throw new UnknownVersionException("Invalid version");
+            throw new UnknownVersionException('Invalid version');
         }
         if ($versionOrHandle instanceof ApiVersion) {
             return $versionOrHandle;
@@ -74,7 +75,7 @@ class ApiVersions
 
             return $version;
         } else {
-            throw new UnknownVersionException("Not allow unknown version. You must call fetchKnownVersions first");
+            throw new UnknownVersionException('Not allow unknown version. You must call fetchKnownVersions first');
         }
     }
 
