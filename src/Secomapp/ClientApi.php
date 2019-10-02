@@ -6,6 +6,7 @@ use Secomapp\Contracts\ClientApiContract;
 use Secomapp\Exceptions\ShopifyApiException;
 use Shopify\Api\Client;
 use Shopify\HttpClient\CurlHttpClient;
+use Exception;
 
 class ClientApi implements ClientApiContract
 {
@@ -14,14 +15,19 @@ class ClientApi implements ClientApiContract
      */
     private $client;
 
+    /** @var ApiVersion  */
+    private $apiVersion;
+
     /**
      * ClientApi constructor.
      *
      * @param string|bool $clientSecret
+     * @param string|bool $apiVersion
      * @param string|bool $shopName
      * @param string|bool $accessToken
+     * @throws Exception
      */
-    public function __construct($clientSecret = false, $shopName = false, $accessToken = false)
+    public function __construct($clientSecret = false, $apiVersion = false, $shopName = false, $accessToken = false)
     {
         $httpClient = new CurlHttpClient();
         $httpClient->setVerifyPeer(false);
@@ -38,6 +44,7 @@ class ClientApi implements ClientApiContract
         }
 
         $this->client = $client;
+        $this->apiVersion = ApiVersions::getInstance()->findVersion($apiVersion);
     }
 
     public function setShopName($shopName)
@@ -83,7 +90,7 @@ class ClientApi implements ClientApiContract
      */
     public function get($url, $extract = null, $params = [])
     {
-        $response = $this->client->get("/admin/$url", $params);
+        $response = $this->client->get($this->getApiUrl($url), $params);
         if (isset($response->errors)) {
             throw new ShopifyApiException(json_encode($response->errors));
         }
@@ -102,7 +109,7 @@ class ClientApi implements ClientApiContract
      */
     public function post($url, $extract = null, $params = [])
     {
-        $response = $this->client->post("/admin/$url", $params);
+        $response = $this->client->post($this->getApiUrl($url), $params);
         if (isset($response->errors)) {
             throw new ShopifyApiException(json_encode($response->errors));
         }
@@ -121,7 +128,7 @@ class ClientApi implements ClientApiContract
      */
     public function put($url, $extract = null, $params = [])
     {
-        $response = $this->client->put("/admin/$url", $params);
+        $response = $this->client->put($this->getApiUrl($url), $params);
         if (isset($response->errors)) {
             throw new ShopifyApiException(json_encode($response->errors));
         }
@@ -137,9 +144,14 @@ class ClientApi implements ClientApiContract
      */
     public function delete($url, $params = [])
     {
-        $response = $this->client->delete("/admin/$url", $params);
+        $response = $this->client->delete($this->getApiUrl($url), $params);
         if (isset($response->errors)) {
             throw new ShopifyApiException(json_encode($response->errors));
         }
+    }
+
+    private function getApiUrl($url)
+    {
+        return "/admin/api/{$this->apiVersion}/{$url}";
     }
 }

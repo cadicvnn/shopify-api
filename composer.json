@@ -5,12 +5,19 @@
     "keywords": ["shopify","api"],
     "require": {
         "php": ">=5.4.0",
+        "ext-json": "*",
         "cadicvnn/shopify-php": "dev-master",
-        "ext-json": "*"
+        "guzzlehttp/guzzle": "^6.3",
+        "phpunit/phpunit": "^8.3"
     },
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "Secomapp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "license": "MIT"
