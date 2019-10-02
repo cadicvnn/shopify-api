@@ -52,6 +52,7 @@ class ApiVersions
      * @param ApiVersion|string $versionOrHandle
      *
      * @return ApiVersion
+     *
      * @throws Exception
      */
     public function findVersion($versionOrHandle)
