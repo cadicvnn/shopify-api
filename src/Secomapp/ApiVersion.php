@@ -6,11 +6,11 @@ class ApiVersion
 {
     const UNSTABLE_HANDLE = 'unstable';
 
-    private $handle;
-    private $displayName;
-    private $supported;
-    private $lastedSupported;
-    private $verified;
+    protected $handle;
+    protected $displayName;
+    protected $supported;
+    protected $lastedSupported;
+    protected $verified;
 
     public function __construct($handle, $displayName = null, $supported = false, $lastedSupported = false, $verified = false)
     {
