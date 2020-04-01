@@ -11,11 +11,12 @@ class Article extends BaseResource
     /**
      * Retrieves a list of all articles from a blog.
      *
-     * @param  string  $blogId  The Id of the blog will be associated with.
-     * @param  array  $params
+     * @param string $blogId  The Id of the blog will be associated with.
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return array
-     * @throws ShopifyApiException
      */
     public function all($blogId, $params = [])
     {
@@ -25,11 +26,12 @@ class Article extends BaseResource
     /**
      * Retrieves a count of all articles from a blog.
      *
-     * @param  string  $blogId  The Id of the blog will be associated with.
-     * @param  array  $params
+     * @param string $blogId  The Id of the blog will be associated with.
+     * @param array  $params
+     *
+     * @throws ShopifyApiException
      *
      * @return int
-     * @throws ShopifyApiException
      */
     public function count($blogId, $params = [])
     {

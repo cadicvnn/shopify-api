@@ -27,8 +27,9 @@ class Blog extends BaseResource
      *
      * @param  array  $params
      *
-     * @return int
      * @throws ShopifyApiException
+     *
+     * @return int
      */
     public function count($params = [])
     {
