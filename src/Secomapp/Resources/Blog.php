@@ -25,13 +25,14 @@ class Blog extends BaseResource
     /**
      * Receive a count of all Blogs.
      *
-     * @throws ShopifyApiException
+     * @param  array  $params
      *
      * @return int
+     * @throws ShopifyApiException
      */
-    public function count()
+    public function count($params = [])
     {
-        return $this->client->get('blogs/count.json', 'count');
+        return $this->client->get('blogs/count.json', 'count', $params);
     }
 
     /**

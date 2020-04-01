@@ -11,29 +11,29 @@ class Article extends BaseResource
     /**
      * Retrieves a list of all articles from a blog.
      *
-     * @param string $blogId The Id of the blog will be associated with.
-     *
-     * @throws ShopifyApiException
+     * @param  string  $blogId  The Id of the blog will be associated with.
+     * @param  array  $params
      *
      * @return array
+     * @throws ShopifyApiException
      */
-    public function all($blogId)
+    public function all($blogId, $params = [])
     {
-        return $this->client->get("blogs/{$blogId}/articles.json", 'articles');
+        return $this->client->get("blogs/{$blogId}/articles.json", 'articles', $params);
     }
 
     /**
      * Retrieves a count of all articles from a blog.
      *
-     * @param string $blogId The Id of the blog will be associated with.
-     *
-     * @throws ShopifyApiException
+     * @param  string  $blogId  The Id of the blog will be associated with.
+     * @param  array  $params
      *
      * @return int
+     * @throws ShopifyApiException
      */
-    public function count($blogId)
+    public function count($blogId, $params = [])
     {
-        return $this->client->get("blogs/{$blogId}/articles/count.json", 'count');
+        return $this->client->get("blogs/{$blogId}/articles/count.json", 'count', $params);
     }
 
     /**
