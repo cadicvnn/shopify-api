@@ -11,7 +11,7 @@ class Article extends BaseResource
     /**
      * Retrieves a list of all articles from a blog.
      *
-     * @param string $blogId  The Id of the blog will be associated with.
+     * @param string $blogId The Id of the blog will be associated with.
      * @param array  $params
      *
      * @throws ShopifyApiException
@@ -26,7 +26,7 @@ class Article extends BaseResource
     /**
      * Retrieves a count of all articles from a blog.
      *
-     * @param string $blogId  The Id of the blog will be associated with.
+     * @param string $blogId The Id of the blog will be associated with.
      * @param array  $params
      *
      * @throws ShopifyApiException

@@ -25,7 +25,7 @@ class Blog extends BaseResource
     /**
      * Receive a count of all Blogs.
      *
-     * @param  array  $params
+     * @param  array $params
      *
      * @throws ShopifyApiException
      *
