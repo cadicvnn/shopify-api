@@ -62,7 +62,7 @@ class Page extends BaseResource
      */
     public function create($params)
     {
-        return $this->client->post("pages.json", 'page', [
+        return $this->client->post('pages.json', 'page', [
             'page' => $params,
         ]);
     }
