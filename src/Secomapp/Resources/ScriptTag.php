@@ -55,17 +55,21 @@ class ScriptTag extends BaseResource
      * Create a new ScriptTag.
      *
      * @param string $url
+     * @param array  $params
      *
      * @throws ShopifyApiException
      *
      * @return stdClass
      */
-    public function create($url)
+    public function create($url, $params = [])
     {
-        return $this->client->post('script_tags.json', 'script_tag', ['script_tag' => [
-            'event' => 'onload',
-            'src'   => $url,
-        ]]);
+        $result = array_merge([
+            'display_scope' => 'online_store',
+            'event'         => 'onload',
+            'src'           => $url,
+        ], $params);
+
+        return $this->client->post('script_tags.json', 'script_tag', ['script_tag' => $result]);
     }
 
     /**
