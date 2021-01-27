@@ -19,7 +19,7 @@ class DiscountCode extends BaseResource
      * Create a new DiscountCode.
      *
      * @param string $priceRuleId
-     * @param array  $discountCode
+     * @param string $discountCode
      *
      * @throws ShopifyApiException
      *
@@ -39,7 +39,7 @@ class DiscountCode extends BaseResource
      *
      * @param string $priceRuleId
      * @param string $discountCodeId
-     * @param array  $discountCode
+     * @param string $discountCode
      *
      * @throws ShopifyApiException
      *
