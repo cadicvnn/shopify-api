@@ -2,7 +2,6 @@
 
 namespace Secomapp;
 
-use Exception;
 use Secomapp\Contracts\ClientApiContract;
 use Secomapp\Exceptions\ShopifyApiException;
 use Shopify\Api\Client;
@@ -25,8 +24,6 @@ class ClientApi implements ClientApiContract
      * @param string|bool $apiVersion
      * @param string|bool $shopName
      * @param string|bool $accessToken
-     *
-     * @throws Exception
      */
     public function __construct($clientSecret = false, $apiVersion = false, $shopName = false, $accessToken = false)
     {

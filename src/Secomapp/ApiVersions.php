@@ -2,7 +2,6 @@
 
 namespace Secomapp;
 
-use Exception;
 use GuzzleHttp\Client as GuzzleClient;
 use Secomapp\Exceptions\UnknownVersionException;
 
@@ -50,8 +49,6 @@ class ApiVersions
 
     /**
      * @param ApiVersion|string $versionOrHandle
-     *
-     * @throws Exception
      *
      * @return ApiVersion
      */

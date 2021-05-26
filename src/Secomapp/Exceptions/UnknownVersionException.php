@@ -2,9 +2,9 @@
 
 namespace Secomapp\Exceptions;
 
-use Exception;
+use UnexpectedValueException;
 
-class UnknownVersionException extends Exception
+class UnknownVersionException extends UnexpectedValueException
 {
     /**
      * Create a new ShopifyApiException instance.
