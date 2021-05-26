@@ -82,7 +82,7 @@ class ClientApi implements ClientApiContract
 
     /**
      * @param string      $url
-     * @param string|null $extract  pass null to return full response
+     * @param string|null $extract pass null to return full response
      * @param array       $params
      *
      * @throws ShopifyApiException
