@@ -28,7 +28,7 @@ abstract class BaseResource
      * @param mixed $varName
      * @param mixed $_       [optional]
      *
-     * @return string query string
+     * @return array
      */
     protected function prepareParams($varName, $_ = null)
     {
