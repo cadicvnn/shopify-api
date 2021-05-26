@@ -82,7 +82,7 @@ class ClientApi implements ClientApiContract
 
     /**
      * @param string      $url
-     * @param string|null $extract
+     * @param string|null $extract  pass null to return full response
      * @param array       $params
      *
      * @throws ShopifyApiException
@@ -96,13 +96,17 @@ class ClientApi implements ClientApiContract
             throw new ShopifyApiException(json_encode($response->errors));
         }
 
-        return !is_null($response) && $extract && property_exists($response, $extract) ? $response->$extract : false;
+        if ($extract) {
+            return  !is_null($response) && property_exists($response, $extract) ? $response->$extract : false;
+        } else {
+            return $response;
+        }
     }
 
     /**
-     * @param string $url
-     * @param string $extract
-     * @param array  $params
+     * @param string      $url
+     * @param string|null $extract pass null to return full response
+     * @param array       $params
      *
      * @throws ShopifyApiException
      *
@@ -115,13 +119,17 @@ class ClientApi implements ClientApiContract
             throw new ShopifyApiException(json_encode($response->errors));
         }
 
-        return $extract && !is_null($response) && property_exists($response, $extract) ? $response->$extract : false;
+        if ($extract) {
+            return  !is_null($response) && property_exists($response, $extract) ? $response->$extract : false;
+        } else {
+            return $response;
+        }
     }
 
     /**
-     * @param string $url
-     * @param string $extract
-     * @param array  $params
+     * @param string      $url
+     * @param string|null $extract pass null to return full response
+     * @param array       $params
      *
      * @throws ShopifyApiException
      *
@@ -134,7 +142,11 @@ class ClientApi implements ClientApiContract
             throw new ShopifyApiException(json_encode($response->errors));
         }
 
-        return !is_null($response) && property_exists($response, $extract) ? $response->$extract : false;
+        if ($extract) {
+            return  !is_null($response) && property_exists($response, $extract) ? $response->$extract : false;
+        } else {
+            return $response;
+        }
     }
 
     /**
