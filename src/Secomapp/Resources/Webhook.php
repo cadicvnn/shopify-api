@@ -57,19 +57,25 @@ class Webhook extends BaseResource
      * @param string $topic
      * @param string $url
      * @param string $format
+     * @param array  $fields
      *
      * @throws ShopifyApiException
      *
      * @return stdClass
      */
-    public function create($topic, $url, $format = 'json')
+    public function create($topic, $url, $format = 'json', $fields = null)
     {
+        $webhook = [
+            'topic'   => $topic,
+            'address' => $url,
+            'format'  => $format,
+        ];
+        if ($fields) {
+            $webhook['fields'] = $fields;
+        }
+
         return $this->client->post('webhooks.json', 'webhook', [
-            'webhook' => [
-                'topic'   => $topic,
-                'address' => $url,
-                'format'  => $format,
-            ],
+            'webhook' => $webhook,
         ]);
     }
 
