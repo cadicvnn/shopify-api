@@ -102,7 +102,9 @@ class Webhook extends BaseResource
             $webhook['fields'] = $fields;
         }
 
-        return $this->client->put("webhooks/{$id}.json", 'webhook', $webhook);
+        return $this->client->put("webhooks/{$id}.json", 'webhook', [
+            'webhook' => $webhook,
+        ]);
     }
 
     /**
