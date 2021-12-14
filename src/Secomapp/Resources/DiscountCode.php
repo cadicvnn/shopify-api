@@ -108,4 +108,20 @@ class DiscountCode extends BaseResource
     {
         return $this->client->post("price_rules/${priceRuleId}/batch.json", 'discount_code_creation', $discounts);
     }
+
+    /**
+     * Retrieves the location of a discount code.
+     *
+     * @param string $code
+     *
+     * @throws ShopifyApiException
+     *
+     * @return stdClass
+     */
+    public function lookup($code)
+    {
+        return $this->client->get('discount_codes/lookup.json', null, [
+            'code' => $code
+        ]);
+    }
 }
