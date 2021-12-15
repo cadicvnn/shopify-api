@@ -88,7 +88,7 @@ class ClientApi implements ClientApiContract
      */
     public function get($url, $extract = null, $params = [])
     {
-        $response = $this->client->get($this->getApiUrl($url), $params);
+        $response = $this->client->get($this->getApiUrl($url), $params, true);
         if (isset($response->errors)) {
             throw new ShopifyApiException(json_encode($response->errors));
         }
