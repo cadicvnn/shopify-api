@@ -20,12 +20,13 @@ interface ClientApiContract
      * @param string $url
      * @param string $extract
      * @param array  $params
+     * @param array  $options two options ('headers', 'raw')
      *
      * @throws ShopifyApiException
      *
      * @return mixed
      */
-    public function get($url, $extract = null, $params = []);
+    public function get($url, $extract = null, $params = [], $options = []);
 
     /**
      * @param string $url

@@ -122,6 +122,6 @@ class DiscountCode extends BaseResource
     {
         return $this->client->get('discount_codes/lookup.json', null, [
             'code' => $code,
-        ]);
+        ], ['raw']);
     }
 }

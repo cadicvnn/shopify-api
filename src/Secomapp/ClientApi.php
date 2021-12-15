@@ -81,19 +81,21 @@ class ClientApi implements ClientApiContract
      * @param string      $url
      * @param string|null $extract pass null to return full response
      * @param array       $params
+     * @param array       $options
      *
      * @throws ShopifyApiException
      *
      * @return bool|object
      */
-    public function get($url, $extract = null, $params = [])
+    public function get($url, $extract = null, $params = [], $options = [])
     {
-        $response = $this->client->get($this->getApiUrl($url), $params, true);
-        if (isset($response->errors)) {
-            throw new ShopifyApiException(json_encode($response->errors));
-        }
+        $response = $this->client->get($this->getApiUrl($url), $params, $options);
 
         if ($extract) {
+            if (isset($response->errors)) {
+                throw new ShopifyApiException(json_encode($response->errors));
+            }
+
             return  !is_null($response) && property_exists($response, $extract) ? $response->$extract : false;
         } else {
             return $response;
