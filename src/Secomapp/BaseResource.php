@@ -32,6 +32,7 @@ abstract class BaseResource
      */
     protected function prepareParams($varName, $_ = null)
     {
+        if (!$varName) $varName = [];
         if (is_array($varName)) {
             return array_filter($varName);
         } else {
