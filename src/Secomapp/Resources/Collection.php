@@ -62,5 +62,4 @@ class Collection extends BaseResource
     {
         $this->client->delete("collections/{$id}.json");
     }
-
 }
