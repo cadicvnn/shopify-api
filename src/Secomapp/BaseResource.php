@@ -32,10 +32,16 @@ abstract class BaseResource
      */
     protected function prepareParams($varName, $_ = null)
     {
+        if (!$varName) $varName = [];
+
         if (is_array($varName)) {
             return array_filter($varName);
-        } else {
-            return array_filter(compact(func_get_args()));
         }
+
+        if (version_compare(phpversion(), "8.0", ">=")) {
+            return is_array(func_get_args()) && !empty(func_get_args()) && func_get_args()[0] ? array_filter(compact(func_get_args())) : [];
+        }
+
+        return array_filter(compact(func_get_args()));
     }
 }
