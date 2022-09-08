@@ -164,6 +164,9 @@ class ClientApi implements ClientApiContract
 
     private function getApiUrl($url)
     {
+        if ($url === 'oauth/access_scopes.json') {
+            return "/admin/{$url}";
+        }
         return "/admin/api/{$this->apiVersion}/{$url}";
     }
 }
