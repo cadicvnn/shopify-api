@@ -77,17 +77,20 @@ class ScriptTag extends BaseResource
      *
      * @param string $id
      * @param string $url
+     * @param array  $params
      *
      * @throws ShopifyApiException
      *
      * @return stdClass
      */
-    public function update($id, $url)
+    public function update($id, $url, $params = [])
     {
-        return $this->client->put("script_tags/{$id}.json", 'script_tag', ['script_tag' => [
+        $result = array_merge([
             'id'  => $id,
             'src' => $url,
-        ]]);
+        ], $params);
+
+        return $this->client->put("script_tags/{$id}.json", 'script_tag', ['script_tag' => $result]);
     }
 
     /**
